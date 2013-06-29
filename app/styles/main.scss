@@ -1,0 +1,468 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+$bodyColor: #444;
+$greenish: #21b473;
+$darkGreenish: #15a469;
+$blueish: #2ba9e1;
+$darkBlueish: #259bcd;
+
+@import 'bourbon/bourbon';
+@import 'sass-bootstrap/lib/bootstrap';
+@import 'fonts';
+
+/*
+font-family:'AvenirNextW01Thin';
+font-family:'AvenirNextLTW01Regular';
+font-family:'AvenirNextLTW01Italic';
+font-family:'AvenirNextLTW01Bold';
+*/
+
+body {
+  font-family: 'AvenirNextW01Thin', Helvetica, sans-serif;
+  color: $bodyColor;
+  font-size: 1.6em;
+  line-height: 1.6em;
+  cursor: default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "AvenirNextW01Thin";
+  color: #444;
+}
+
+h2, .h2 {
+  font-size: 50px;
+  padding-bottom: 0.5em;
+}
+
+h4 {
+  font-family: "AvenirNextLTW01Bold";
+}
+
+a {
+  color: $greenish;
+
+  &:hover {
+    color: $darkGreenish;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  height: 0;
+  width: 100%;
+  background: rgba(#000, 0.85);
+  border-bottom: 1px solid #000;
+  color: #fff;
+  overflow: hidden;
+  z-index: 9999;
+  @include transition(all 300ms ease);
+
+  .navbar-nav > li > a {
+    color: $blueish;
+    // text-transform: uppercase;
+
+    &:hover,
+    &.active {
+      color: white;
+    }
+  }
+
+  &.open {
+    height: 50px;
+  }
+
+  .navbar-brand {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover {
+    background: transparent;
+  }
+}
+
+#page-canvas {
+  display: none;
+}
+
+#page-img {
+  background-attachment: fixed;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Sections */
+
+section {
+  box-shadow: 0px -5px 30px rgba(50, 50, 50, 0.7);
+  padding: 60px 0;
+  margin: 0 auto;
+  width: 100%;
+
+  .container {
+    width: 90%;
+    max-width: 696px;
+  }
+
+  .i-do {
+    color: #ccc;
+  }
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin-bottom: 1em;
+
+    &:last-of-type {
+      margin-bottom: 50px;
+    }
+
+    a {
+      color: $blueish;
+
+      &:hover {
+        color: $darkBlueish;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 80px;
+  }
+
+  &.image-background {
+    box-shadow: inset 0px 5px 30px rgba(50, 50, 50, 0.7);
+    margin: 0 auto;
+    max-width: 1920px;
+    padding-top: 0px;
+    z-index: -1;
+  }
+}
+
+.section-down, .section-up {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+
+  a {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: block;
+    font-size: 18px;
+    line-height: 50px;
+    padding-right: 2px;
+    text-align: center;
+    vertical-align: middle;
+    @include transition(all 300ms ease-in-out);
+
+    &:hover {
+      background-color: #999;
+    }
+  }
+
+  span {
+    color: #fff;
+  }
+}
+
+.section-up {
+  a {
+    line-height: 45px;
+    padding-left: 3px;
+  }
+}
+
+/* Paralax */
+
+#intro {
+  height: 900px;
+  background: url(/images/office.jpg) 0 0 no-repeat fixed;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(#000, 0.8);
+
+  .nav-pills {
+    display: inline-block;
+    font-family: "AvenirNextW01Thin";
+    text-transform: uppercase;
+    margin: 0 auto;
+
+    li {
+      margin-right: 20px;
+      font-size: 1.2em;
+    }
+
+    li.active > a:hover, li.active > a, > a, > li > a:hover, > li > a:focus, > li a {
+      padding-left: 0;
+      padding-right: 0;
+      background-color: transparent;
+      color: white;
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
+
+    li.active > a:hover, li.active > a, li > a:hover, li > a:focus {
+      color: rgba(#ddd, 0.8);
+    }
+
+  }
+
+  .brand {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -133px;
+    margin-left: -263px;
+  }
+
+  .btn {
+    text-shadow: none;
+    // border-radius: 0;
+  }
+
+  p {
+    line-height: 200%;
+    margin-top: 20px;
+  }
+}
+
+.name {
+  color: white;
+  font-family: "AvenirNextLTW01Bold";
+  font-size: 50px;
+  // text-shadow: none;
+  text-transform: uppercase;
+}
+
+.eric {
+  font-family: "AvenirNextW01Thin";
+}
+
+/* Buttons */
+.btn-success {
+  background-color: $greenish;
+  border-color: $greenish;
+
+  &:hover,
+  &:focus {
+    background-color: $darkGreenish;
+    border-color: $darkGreenish;
+  }
+}
+
+/* Design */
+
+#photo {
+  height: 480px;
+  background: url(/images/photo.jpg) 0 -200px no-repeat fixed;
+  background-size: cover;
+  text-shadow: 1px 1px 10px rgba(#fff, 0.4);
+}
+
+div[id$="-collection"] {
+  margin-bottom: 60px;
+  div[id^="overlay-"] {
+    opacity: 0;
+    position: relative;
+    z-index: -1;
+    @include transition(all 300ms ease-in-out);
+
+    &.target {
+      opacity: 1;
+      z-index: 9001;
+    }
+
+    &:hover {
+      .caption {
+        opacity: 1;
+      }
+    }
+
+    img {
+      position: absolute;
+    }
+
+    .caption {
+      height: 100px;
+      width: 100%;
+      background-color: rgba(#000, 0.8);
+      color: #fff;
+      opacity: 0;
+      padding: 10px 30px;
+      position: absolute;
+      top: 422px;
+      @include transition(all 300ms ease-in-out);
+
+      h4 {
+        color: #fff;
+      }
+
+    }
+  }
+
+  .thumbnail {
+    position: relative;
+    padding: 0 1px 1px 0;
+    border: none;
+
+    .caption {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(#fff, 0.9);
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      @include transition(all 300ms ease-out);
+    }
+
+    &:hover .caption {
+      opacity: 1;
+    }
+  }
+}
+
+/* Development */
+
+#code {
+  height: 480px;
+  background: url(/images/code.jpg) 0 0 no-repeat fixed;
+  background-size: cover;
+  text-shadow: 1px 1px 10px rgba(#fff, 0.4);
+}
+
+/* Education */
+
+#teach {
+  height: 480px;
+  background: url(/images/chalkboard.jpg) 0 0 no-repeat fixed;
+  background-size: cover;
+  text-shadow: 1px 1px 10px rgba(#fff, 0.4);
+}
+
+#contact-me {
+  .form-inline {
+
+    .box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      border: none;
+      border-bottom: 2px dashed #ccc;
+      border-radius: 0;
+      box-shadow: none;
+      color: #333;
+      font-size: 1em;
+      padding: 0;
+      margin: 0 5px;
+      vertical-align: baseline;
+      width: auto;
+      min-width: 125px;
+      @include transition(all 300ms ease-in-out);
+
+      &:focus {
+        font-family: AvenirNextLTW01Regular;
+        border-bottom: 2px dashed $blueish;
+      }
+    }
+
+    input[type="email"] {
+      width: 250px;
+    }
+
+    p {
+      line-height: 160%;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    select {
+      background: none;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px dashed #ccc;
+      box-shadow: none;
+      color: #333;
+      font-size: 1em;
+      padding: 0;
+      margin: 0;
+      vertical-align: baseline;
+      width: auto;
+      -webkit-appearance: none;
+      @include transition(all 300ms ease-in-out);
+
+      &:focus {
+        font-family: AvenirNextLTW01Regular;
+        border-bottom: 2px dashed $blueish;
+      }
+    }
+
+    textarea {
+      background: none;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      color: #333;
+      font-size: 1em;
+      line-height: 200%;
+      padding: 0;
+      margin: 0;
+      vertical-align: baseline;
+      @include transition(all 300ms ease-in-out);
+    }
+  }
+}
+
+/* Footer */
+
+#footer {
+  height: 480px;
+  background: url(/images/florence.jpg) 0 -300px no-repeat fixed;
+  background-size: cover;
+  text-shadow: 1px 1px 10px rgba(#fff, 0.4);
+
+  .page-footer {
+    color: white;
+    padding: 20px;
+    text-align: right;
+  }
+}
+
+/* Respond */
+@media only screen and (max-width: 600px) {
+  #intro {
+    .name,
+    .nav-pills {
+      display: none;
+    }
+
+    .brand {
+      width: 200px;
+      margin-left: -100px;
+    }
+
+    .btn {
+      display: block;
+    }
+  }
+
+  .navbar {
+    height: 50px;
+  }
+}

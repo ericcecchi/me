@@ -1,0 +1,18 @@
+{
+    "key": "QK-uhXomdIRoi4_EXM9dwQ",
+    "message": {
+        "html": "<p>Example HTML content</p>",
+        "text": "Example text content",
+        "subject": "Contact on EricCecchi.com",
+        "from_email": "me@ericcecchi.com",
+        "from_name": "",
+        "to": [
+            {
+                "email": "me@ericcecchi.com",
+                "name": "Eric Cecchi"
+            }
+        ],
+        "headers": {
+            "Reply-To": "message.reply@example.com"
+        }
+}
