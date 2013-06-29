@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Eric Cecchi</title>
     <meta name="description" content="Design, Development, and Education">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
     <link rel="stylesheet" href="styles/main.css">
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
@@ -16,156 +16,158 @@
   </head>
 
   <body data-spy="scroll" data-target="#nav-spy" data-offset="120">
-    <div id="page-canvas"></div>
-    <div id="page-img"></div>
-    <div class="navbar navbar-fixed-top">
-      <div id="nav-spy" class="container">
-        <a class="navbar-brand name" href="#"><span class="eric">Eric</span><span class="cecchi">Cecchi</span></a>
-        <a href="#contact-me" type="button" class="btn btn-success navbar-btn pull-right">Contact me</a>
-        <ul class="nav navbar-nav pull-right">
-          <li><a href="#design">Design</a></li>
-          <li><a href="#development">Development</a></li>
-          <li><a href="#education">Education</a></li>
-        </ul>
+    <div id="wrapper">
+      <div id="scroller">
+        <div class="navbar navbar-fixed-top">
+          <div id="nav-spy" class="container">
+            <a class="navbar-brand name" href="#"><span class="eric">Eric</span><span class="cecchi">Cecchi</span></a>
+            <a href="#contact-me" type="button" class="btn btn-success navbar-btn pull-right">Contact me</a>
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="#design">Design</a></li>
+              <li><a href="#development">Development</a></li>
+              <li><a href="#education">Education</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <section id="intro" class="image-background" data-stellar-background-ratio="0.5">
+          <div class="brand">
+            <h1 class="name"><span class="eric">Eric</span><span class="cecchi">Cecchi</span></h1>
+            <ul class="nav nav-pills">
+              <li><a href="#design">Design</a></li>
+              <li><a>+</a></li>
+              <li><a href="#development">Development</a></li>
+              <li><a>+</a></li>
+              <li><a href="#education">Education</a></li>
+            </ul>
+            <p>You can <a href="#design" type="button" class="btn btn-danger btn-large">see what I do</a> or just go ahead and <a href="#contact-me" type="button" class="btn btn-success btn-large">contact me.</a></p>
+          </div>
+        </section>
+
+        <section id="design">
+          <div class="container">
+            <h2><span class="i-do">I do</span> design.</h2>
+
+            <p>I love creating things that help people. I believe content is king. Form follows function. Design should be invisible. Beauty is in simplicity.</p>
+
+            <p>With these principles as well as my knowledge of content strategy, information architecture, and brand management, I create designs where the message rings loud and clear.</p>
+
+            <!-- <p>You can <a href="#portfolio" title="#portfolio">view some of my work</a> or <a href="#services-design" title="#services-design">check out my design services</a>.</p> -->
+
+            <div class="section-down">
+              <a href="#development"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="photo" class="image-background" data-stellar-background-ratio="0.5">
+        </section>
+
+        <section id="development">
+          <div class="container">
+            <h2><span class="i-do">I do</span> development.</h2>
+
+            <p>I love building websites and apps. I take mobile-first, responsive design and pair it with the latest technologies—HTML5, CSS3, and Javascript frameworks—to create a fully immersive experience that drives users to action.</p>
+
+            <p>Want to get online or into the hands of millions of iOS and Android users? Whether it's a simple blog or a powerful, scalable web and mobile app, I can make it happen.</p>
+
+            <!-- <p>You can <a href="https://github.com/ericcecchi" title="https://github.com/ericcecchi">view some of my code on Github</a> or <a href="#services-development" title="#services-development">check out my development services</a>.</p> -->
+
+            <div class="section-down">
+              <a href="#education"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="code" class="image-background" data-stellar-background-ratio="0.5">
+        </section>
+
+        <section id="education">
+          <div class="container">
+            <h2><span class="i-do">I do</span> education.</h2>
+
+            <p>There is little in this world I am more passionate about than education. I'm in love with learning and helping people learn. That's why I'm an Illinois certified teacher for grades 6 through 12 with endorsements in science and mathematics. I provide tutoring and training in a variety of subjects, including ACT/SAT prep, algebra, trigonometry, calculus, chemistry, physics, computer science, technology, and more.</p>
+
+            <!-- <p>You can <a href="#services-education" title="#services-education">learn more about my education services</a>.</p> -->
+
+            <div class="section-down">
+              <a href="#contact-me"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="teach" class="image-background" data-stellar-background-ratio="0.5">
+        </section>
+
+        <section id="contact-me">
+          <div class="container">
+            <h2><span class="i-do">You can</span> contact me.</h2>
+
+            <p>You can ask me a question, set up a meeting, get a quote, or just shoot the breeze. Fill in blanks below and I'll get back to you.</p>
+
+            <form class="form-inline">
+              <div class="box">
+                <p>Hey, Eric.</p>
+                <p>
+                  <span>My name is </span><input type="text" placeholder="Joe"> <input type="text" placeholder="Somebody"><span>, and I have to admit you're pretty cool. Anyway, I'd like to</span>
+                  <select>
+                    <option>ask a question</option>
+                    <option>set up a meeting</option>
+                    <option>get a quote</option>
+                    <option>shoot the breeze</option>
+                  </select>
+                  <span>about</span>
+                  <select>
+                    <option>design.</option>
+                    <option>development.</option>
+                    <option>education.</option>
+                    <option>something else.</option>
+                  </select>
+                </p>
+                <p>
+                  <textarea placeholder="Here's what I'm thinking:  "></textarea>
+                </p>
+                <p>
+                  <span>The best way to get back to me is</span>
+                  <select>
+                    <option>emailing</option>
+                    <option>texting</option>
+                    <option>calling</option>
+                    <option>yodeling to</option>
+                  </select>
+                  <span>me at </span><input type="email" placeholder="joe@example.com"><span>.</span>
+                </p>
+                <p>
+                  <span>Lates,<br>Joe</span>
+                </p>
+              </div>
+              <button type="submit" class="btn btn-large btn-success">Send</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="footer" class="image-background" data-stellar-background-ratio="0.5">
+          <footer class="page-footer">
+            <p>&copy; 2013 Eric Cecchi</p>
+          </footer>
+        </section>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+          // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+          // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          // g.src='//www.google-analytics.com/ga.js';
+          // s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
       </div>
     </div>
-
-    <section id="intro" class="image-background" data-stellar-background-ratio="0.5">
-      <div class="brand">
-        <h1 class="name"><span class="eric">Eric</span><span class="cecchi">Cecchi</span></h1>
-        <ul class="nav nav-pills">
-          <li><a href="#design">Design</a></li>
-          <li><a>+</a></li>
-          <li><a href="#development">Development</a></li>
-          <li><a>+</a></li>
-          <li><a href="#education">Education</a></li>
-        </ul>
-        <p>You can <a href="#design" type="button" class="btn btn-danger btn-large">see what I do</a> or just go ahead and <a href="#contact-me" type="button" class="btn btn-success btn-large">contact me.</a></p>
-      </div>
-    </section>
-
-    <section id="design">
-      <div class="container">
-        <h2><span class="i-do">I do</span> design.</h2>
-
-        <p>I love creating things that help people. I believe content is king. Form follows function. Design should be invisible. Beauty is in simplicity.</p>
-
-        <p>With these principles as well as my knowledge of content strategy, information architecture, and brand management, I create designs where the message rings loud and clear.</p>
-
-        <!-- <p>You can <a href="#portfolio" title="#portfolio">view some of my work</a> or <a href="#services-design" title="#services-design">check out my design services</a>.</p> -->
-
-        <div class="section-down">
-          <a href="#development"><span class="glyphicon glyphicon-chevron-down"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="photo" class="image-background" data-stellar-background-ratio="0.5">
-    </section>
-
-    <section id="development">
-      <div class="container">
-        <h2><span class="i-do">I do</span> development.</h2>
-
-        <p>I love building websites and apps. I take mobile-first, responsive design and pair it with the latest technologies—HTML5, CSS3, and Javascript frameworks—to create a fully immersive experience that drives users to action.</p>
-
-        <p>Want to get online or into the hands of millions of iOS and Android users? Whether it's a simple blog or a powerful, scalable web and mobile app, I can make it happen.</p>
-
-        <!-- <p>You can <a href="https://github.com/ericcecchi" title="https://github.com/ericcecchi">view some of my code on Github</a> or <a href="#services-development" title="#services-development">check out my development services</a>.</p> -->
-
-        <div class="section-down">
-          <a href="#education"><span class="glyphicon glyphicon-chevron-down"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="code" class="image-background" data-stellar-background-ratio="0.5">
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <h2><span class="i-do">I do</span> education.</h2>
-
-        <p>There is little in this world I am more passionate about than education. I'm in love with learning and helping people learn. That's why I'm an Illinois certified teacher for grades 6 through 12 with endorsements in science and mathematics. I provide tutoring and training in a variety of subjects, including ACT/SAT prep, algebra, trigonometry, calculus, chemistry, physics, computer science, technology, and more.</p>
-
-        <!-- <p>You can <a href="#services-education" title="#services-education">learn more about my education services</a>.</p> -->
-
-        <div class="section-down">
-          <a href="#contact-me"><span class="glyphicon glyphicon-chevron-down"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="teach" class="image-background" data-stellar-background-ratio="0.5">
-    </section>
-
-    <section id="contact-me">
-      <div class="container">
-        <h2><span class="i-do">You can</span> contact me.</h2>
-
-        <p>You can ask me a question, set up a meeting, get a quote, or just shoot the breeze. Fill in blanks below and I'll get back to you.</p>
-
-        <form class="form-inline">
-          <div class="box">
-            <p>Hey, Eric.</p>
-            <p>
-              <span>My name is </span><input type="text" placeholder="Joe"> <input type="text" placeholder="Somebody"><span>, and I have to admit you're pretty cool. Anyway, I'd like to</span>
-              <select>
-                <option>ask a question</option>
-                <option>set up a meeting</option>
-                <option>get a quote</option>
-                <option>shoot the breeze</option>
-              </select>
-              <span>about</span>
-              <select>
-                <option>design.</option>
-                <option>development.</option>
-                <option>education.</option>
-                <option>something else.</option>
-              </select>
-            </p>
-            <p>
-              <textarea placeholder="Here's what I'm thinking:  "></textarea>
-            </p>
-            <p>
-              <span>The best way to get back to me is</span>
-              <select>
-                <option>emailing</option>
-                <option>texting</option>
-                <option>calling</option>
-                <option>yodeling to</option>
-              </select>
-              <span>me at </span><input type="email" placeholder="joe@example.com"><span>.</span>
-            </p>
-            <p>
-              <span>Lates,<br>Joe</span>
-            </p>
-          </div>
-          <button type="submit" class="btn btn-large btn-success">Send</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="footer" class="image-background" data-stellar-background-ratio="0.5">
-      <footer class="page-footer">
-        <p>&copy; 2013 Eric Cecchi</p>
-      </footer>
-    </section>
-
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      // g.src='//www.google-analytics.com/ga.js';
-      // s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-    <!-- build:js scripts/main.js -->
-    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
-    <!-- endbuild -->
   </body>
 </html>

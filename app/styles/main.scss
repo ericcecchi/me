@@ -99,7 +99,6 @@ a {
 section {
   box-shadow: 0px -5px 30px rgba(50, 50, 50, 0.7);
   padding: 60px 0;
-  margin: 0 auto;
   width: 100%;
 
   .container {
@@ -349,6 +348,8 @@ div[id$="-collection"] {
   text-shadow: 1px 1px 10px rgba(#fff, 0.4);
 }
 
+/* Contact */
+
 #contact-me {
   .form-inline {
 
@@ -445,8 +446,11 @@ div[id$="-collection"] {
 }
 
 /* Respond */
+
 @media only screen and (max-width: 600px) {
   #intro {
+    height: 640px;
+
     .name,
     .nav-pills {
       display: none;
@@ -465,4 +469,21 @@ div[id$="-collection"] {
   .navbar {
     height: 50px;
   }
+
+  .image-background {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+.mobile body {
+  overflow: hidden;
+}
+
+.mobile #wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

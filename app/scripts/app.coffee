@@ -1,4 +1,4 @@
-define ['jquery','stellar','html2canvas','blur','autosize'], ($)->
+define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
 	'use strict';
 	console.log "'Allo from CoffeeScript!"
 
@@ -27,7 +27,21 @@ define ['jquery','stellar','html2canvas','blur','autosize'], ($)->
 			e.preventDefault()
 
 		# Paralax
-		$.stellar()
+		ua = navigator.userAgent
+		isMobileWebkit = /WebKit/.test(ua) and /Mobile/.test(ua)
+
+		$("html").addClass "mobile" if isMobileWebkit
+		$ ->
+			if isMobileWebkit
+				iScrollInstance = new iScroll("wrapper")
+				$("#scroller").stellar
+					scrollProperty: "transform"
+					positionProperty: "transform"
+					horizontalScrolling: false
+
+			else
+				$.stellar
+					horizontalScrolling: false
 
 		# Hidden navbar
 		$(".navbar").addClass 'open' if $(window).scrollTop() > 450
