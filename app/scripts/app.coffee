@@ -1,4 +1,4 @@
-define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
+define ['jquery','stellar','html2canvas','blur','autosize','validate'], ($)->
 	'use strict';
 	console.log "'Allo from CoffeeScript!"
 
@@ -13,7 +13,12 @@ define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
 		$("input[type=\"text\"], input[type=\"email\"]").keyup(resizeInput).each resizeInput
 
 		# Smooth scrolling
-		$("a[href^=\"#\"], .nav > li > a, .section-up a, .section-down a").click (e) ->
+		$('a[href="#design"],
+			a[href="#development"],
+			a[href="#education"],
+			a[href="#contact-me"],
+			a[href="#"]').click (e) ->
+			e.preventDefault()
 			anchor = $(this)
 			if anchor.attr("href") == '#'
 				offset = 0
@@ -24,7 +29,6 @@ define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
 			$("html, body").stop().animate
 				scrollTop: offset
 				, 1000, "easeInOutQuart"
-			e.preventDefault()
 
 		# Paralax
 		ua = navigator.userAgent
@@ -33,11 +37,11 @@ define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
 		$("html").addClass "mobile" if isMobileWebkit
 		$ ->
 			if isMobileWebkit
-				iScrollInstance = new iScroll("wrapper")
-				$("#scroller").stellar
-					scrollProperty: "transform"
-					positionProperty: "transform"
-					horizontalScrolling: false
+				# iScrollInstance = new iScroll("wrapper")
+				# $("#scroller").stellar
+				# 	scrollProperty: "transform"
+				# 	positionProperty: "transform"
+				# 	horizontalScrolling: false
 
 			else
 				$.stellar
@@ -82,5 +86,75 @@ define ['jquery','stellar','html2canvas','blur','autosize','iscroll'], ($)->
 
 			cap = $("#{sectionOverlay} .caption").first()
 			cap.html $(this).children(".caption").first().html()
-			link = img.attr "data-link"
+			link = img.data "link"
 			cap.children("p").first().append " <a href=\"#{link}\">Visit site ›</a>" if link
+
+		# Mandrill email
+		$("#send-form").validate
+			# showErrors: (errorMap, errorList)->
+			# 	for error in errorList
+			# 		$(error['element']).tooltip('show')
+
+			# success: (label, element)->
+			# 	$(element).tooltip('destroy')
+
+			submitHandler: (form)->
+				$(form).submit (e)->
+					e.preventDefault()
+					return false unless $(this).valid()
+					date = new Date()
+					contact_info = "#{$('#contact-info').val()}"
+					contact_type = "#{$('#contact-type').val()}"
+					if contact_type == "emailing" and contact_info != ""
+						from_email = contact_info
+					else
+						from_email = "me@ericcecchi.com"
+					first_name = "#{$('#first-name').val()}"
+					last_name = "#{$('#last-name').val()}"
+					from_name = "#{first_name} #{last_name}"
+					html =
+						"
+						<h1>New Message on EricCecchi.com</h1>
+						<p>
+						#{from_name} sent you a message on #{date}. #{first_name} wanted to #{$('#message-type').val()} about
+						 #{$('#message-topic').val()}
+						</p>
+						<p>
+						#{$('#message').val()}
+						</p>
+						<p>
+						You can contact #{first_name} by #{contact_type} them at #{from_email}.
+						</p>
+						"
+					$("#submit-button").button "loading"
+					$.ajax(
+						url: "https://mandrillapp.com/api/1.0/messages/send.json",
+						type: "POST",
+						dataType: "json",
+						data: {
+							"key": "QK-uhXomdIRoi4_EXM9dwQ",
+							"message": {
+								"html": "#{html}",
+								"text": "#{html}",
+								"subject": "Contact on EricCecchi.com",
+								"from_email": "#{from_email}",
+								"from_name": "#{from_name}",
+								"to": [
+									{
+										"email": "me@ericcecchi.com",
+										"name": "Eric Cecchi"
+									}
+								],
+								"headers": {
+									"Reply-To": "me@ericcecchi.com"
+								}
+							}
+						}
+					).done (json)->
+						resp = json[0]
+						if resp['status'] not in ["sent", "queued", "scheduled"]
+							$("#contact-alert .message").first().html resp['reject_reason']
+							$("#submit-button").text "Send Failed"
+						else
+							$("#submit-button").text "Message Sent"
+						$("#contact-alert").addClass 'in'

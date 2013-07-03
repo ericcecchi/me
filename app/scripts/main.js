@@ -6,6 +6,7 @@ require.config({
         html2canvas: 'vendor/html2canvas.min',
         blur: 'vendor/blur.min',
         stellar: '../bower_components/jquery.stellar/jquery.stellar.min',
+        validate: 'vendor/jquery.validate.min',
         autosize: '../bower_components/jquery-autosize/jquery.autosize-min',
         iscroll: 'vendor/iscroll'
     },
@@ -25,11 +26,14 @@ require.config({
         },
         autosize: {
             deps: ['jquery']
+        },
+        validate: {
+            deps: ['jquery']
         }
     }
 });
 
-require(['app', 'jquery', 'bootstrap','jqueryEasing','stellar','html2canvas','blur','autosize','iscroll'], function (app, $) {
+require(['app', 'jquery', 'bootstrap','jqueryEasing','stellar','html2canvas','blur','autosize','validate'], function (app, $) {
     'use strict';
     console.log(app);
     console.log('Running jQuery %s', $().jquery);
