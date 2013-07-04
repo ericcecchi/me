@@ -428,6 +428,18 @@ div[id$="-collection"] {
       @include transition(all 300ms ease-in-out);
     }
   }
+
+  .tooltip-inner {
+    background-color: rgba(#d44, 0.9);
+  }
+
+  .tooltip.top .tooltip-arrow {
+    border-top-color: rgba(#d44, 0.9);
+  }
+
+  .tooltip.right .tooltip-arrow {
+    border-right-color: rgba(#d44, 0.9);
+  }
 }
 
 /* Footer */
