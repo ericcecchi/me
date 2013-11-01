@@ -1,6 +1,5 @@
 define ['jquery','stellar','autosize'], ($)->
-	'use strict';
-	console.log "'Allo from CoffeeScript!"
+	'use strict'
 
 	$(document).ready ->
 		# Smooth scrolling
@@ -161,7 +160,7 @@ define ['jquery','stellar','autosize'], ($)->
 				resp = json[0]
 				if resp['status'] not in ["sent", "queued", "scheduled"]
 					alertClass = 'alert-warning'
-					message = "The message failed to send: #{resp['reject_reason']}."
+					message = "The message failed to send: #{resp['reject_reason']}. Reload the page and try again."
 					$("#submit-button").text "Send Failed"
 				else
 					alertClass = 'alert-success'

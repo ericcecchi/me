@@ -6,7 +6,7 @@
     "requirejs": "~2.1.4",
     "modernizr": "~2.6.2",
     "jquery": "~1.9.1",
-    "jquery-easing": "latest",
+    "jquery.easing": "latest",
     "jquery.stellar": "latest",
     "jquery-autosize": "latest"
   },
