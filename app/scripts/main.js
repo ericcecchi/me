@@ -4,7 +4,7 @@ require.config({
         jqueryEasing: '../bower_components/jquery-easing/jquery.easing.min',
         bootstrap: 'vendor/bootstrap',
         stellar: '../bower_components/jquery.stellar/jquery.stellar.min',
-        autosize: '../bower_components/jquery-autosize/jquery.autosize-min',
+        autosize: '../bower_components/jquery-autosize/jquery.autosize.min',
     },
     shim: {
         bootstrap: {

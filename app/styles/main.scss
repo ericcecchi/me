@@ -361,7 +361,8 @@ div[id$="-collection"] {
     }
 
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="tel"] {
       border: none;
       border-bottom: 2px dashed #ccc;
       border-radius: 0;
@@ -381,7 +382,7 @@ div[id$="-collection"] {
       }
     }
 
-    input[type="email"] {
+    #contact-info {
       width: 250px;
     }
 
@@ -459,7 +460,7 @@ div[id$="-collection"] {
 
 /* Respond */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $screen-small-max) {
   #intro {
     height: 640px;
 
@@ -484,7 +485,8 @@ div[id$="-collection"] {
 
   .image-background {
     width: 100%;
-    max-width: 600px;
+    background-attachment: scroll !important;
+    background-position-y: center !important;
   }
 }
 

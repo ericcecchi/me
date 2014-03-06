@@ -25,9 +25,12 @@ define ['jquery','stellar','autosize'], ($)->
 		isMobileWebkit = /WebKit/.test(ua) and /Mobile/.test(ua)
 
 		$("html").addClass "mobile" if isMobileWebkit
-		if isMobileWebkit
-			# To do: fix mobile image backgrounds
+		w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
+		if isMobileWebkit or w < 768
+			$.stellar
+				horizontalScrolling: false,
+				verticalScrolling: false
 		else
 			$.stellar
 				horizontalScrolling: false
@@ -70,10 +73,13 @@ define ['jquery','stellar','autosize'], ($)->
 			switch $(this).val()
 				when "texting", "calling"
 					$("#contact-info").prop "placeholder", "312 865 5309"
+					$("#contact-info").prop "type", "tel"
 				when "yodeling to"
 					$("#contact-info").prop "placeholder", "my address in the Himalayas"
+					$("#contact-info").prop "type", "text"
 				else
 					$("#contact-info").prop "placeholder", "joe@example.com"
+					$("#contact-info").prop "type", "email"
 
 		# Textarea autosize
 		$('textarea').autosize()
@@ -130,7 +136,7 @@ define ['jquery','stellar','autosize'], ($)->
 				#{$('#message').val()}
 				</p>
 				<p>
-				You can contact #{first_name} by #{contact_type} them at #{from_email}.
+				You can contact #{first_name} by #{contact_type} them at #{contact_info}.
 				</p>
 				"
 			$("#submit-button").button "loading"
