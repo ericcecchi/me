@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "prettier --single-quote **/*.js",
     "prettier": "prettier --single-quote --write",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "export": "npm run build && next export"
   },
   "husky": {
     "hooks": {
