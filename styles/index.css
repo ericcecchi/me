@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'Pier Sans';
+    src: url('/static/fonts/PierSans-Regular.woff2') format('woff2'),
+    url('/static/fonts/PierSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pier Sans';
+    src: url('/static/fonts/PierSans-Bold.woff2') format('woff2'),
+    url('/static/fonts/PierSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    @apply font-sans text-gray-800 bg-gray-100;
+}
+
+h1 {
+    @apply text-5xl  leading-tight;
+}
+
+a {
+    @apply text-blue-600 underline;
+}
