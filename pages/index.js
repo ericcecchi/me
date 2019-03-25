@@ -13,7 +13,7 @@ const Home = () => {
         </Link>
       </header>
 
-      <section id="about" className="max-w-lg mt-16 lg:mt-40">
+      <section id="about" className="max-w-lg mt-16 lg:mt-32">
         <h1 className="mb-8">I’m a web engineer based in Chicago, IL.</h1>
         <p>
           I’ve been making beautiful and functional user experiences on the
@@ -30,7 +30,7 @@ const Home = () => {
           >
             Insights blog
           </a>
-          , which draws over 1.5 million pairs of monthly eyeballs.
+          , which draws over 1.5 million pairs of eyeballs monthly.
         </p>
 
         <p className="mt-8">
