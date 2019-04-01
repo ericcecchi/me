@@ -14,7 +14,7 @@ const Home = () => {
       </header>
 
       <section id="about" className="max-w-lg mt-16 lg:mt-32">
-        <h1 className="mb-5 md:mb-8 text-3xl md:text-5xl">
+        <h1 className="mb-5 md:mb-8 text-3xl md:text-5xl leading-tight">
           I’m a web engineer based in Chicago, IL.
         </h1>
         <p>
