@@ -19,8 +19,10 @@ const Home = () => {
         </h1>
         <p>
           I’ve been making beautiful and functional user experiences on the
-          World Wide Web for over 8 years. I have spent the majority of that
-          time at Sprout Social, where I led development of the{' '}
+          World Wide Web for over 9 years. I have spent the majority of that
+          time at Sprout Social, where I founded and grew the team web developers
+          tasked with elevating our brand and growing our customer base through
+          digital marketing, including the{' '}
           <a href="https://sproutsocial.com/" rel="noopener" target="_blank">
             website
           </a>{' '}
@@ -32,7 +34,9 @@ const Home = () => {
           >
             Insights blog
           </a>
-          , which draws over 1.5 million pairs of eyeballs monthly.
+          , which draw over 1.5 million visitors each month.  Now, I
+          manage a team of web and platform engineers building our flagship
+          social media management software product used by over 20,000 customers.
         </p>
 
         <p className="mt-5 md:mt-8">
