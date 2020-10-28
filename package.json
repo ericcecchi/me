@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "postbuild": "next-on-netlify",
     "start": "next start",
     "lint": "prettier --single-quote **/*.js",
     "prettier": "prettier --single-quote --write",
@@ -36,6 +37,7 @@
   "homepage": "https://github.com/ericcecchi/me#readme",
   "dependencies": {
     "next": "^10.0.0",
+    "next-on-netlify": "^2.6.0",
     "react": "^16.10",
     "react-dom": "^16.10",
     "xterm": "^4.9.0"
