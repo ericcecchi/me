@@ -1,22 +1,19 @@
 import React from 'react';
-import '../styles/index.css';
 import Link from 'next/link';
+import Avatar from '../components/Avatar';
 
 const Home = () => {
   return (
     <main className="container mx-auto py-8 px-3">
-      <header className="font-sans">
-        <Link href="/">
-          <a className="font-bold no-underline text-gray-500 hover:text-blue-700">
-            Eric Cecchi
-          </a>
-        </Link>
-      </header>
-
-      <section id="about" className="max-w-lg mt-16 lg:mt-32">
-        <h1 className="mb-5 md:mb-8 text-3xl md:text-5xl leading-tight">
-          I’m a web engineer based in Chicago, IL.
-        </h1>
+      <section id="about" className="max-w-xl mt-16 lg:mt-32">
+        <div className="md:flex items-center mb-5 md:mb-8">
+          <div className="flex-shrink-0">
+            <Avatar />
+          </div>
+          <h1 className="text-4xl md:text-5xl leading-tight mt-5 md:mt-0 md:ml-5">
+            I’m a web engineer based in Chicago, IL.
+          </h1>
+        </div>
         <p>
           I’ve been making beautiful and functional user experiences on the
           World Wide Web for over 9 years. I have spent the majority of that
