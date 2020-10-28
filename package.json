@@ -1,7 +1,7 @@
 {
   "name": "me",
   "version": "1.0.0",
-  "description": "",
+  "description": "My personal website",
   "main": "index.js",
   "scripts": {
     "dev": "next",
