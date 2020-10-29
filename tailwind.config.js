@@ -6,7 +6,9 @@ module.exports = {
     './pages/**/*.js',
     './pages/**/*.ts',
     './pages/**/*.jsx',
-    './pages/**/*.tsx'
+    './pages/**/*.tsx',
+    './components/**/*.jsx',
+    './components/**/*.tsx'
   ],
   target: 'relaxed',
   prefix: '',
