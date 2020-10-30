@@ -1,5 +1,7 @@
+import {Image} from '@chakra-ui/core';
+
 const Avatar = ({src = '/me.jpg', width = '100px', height = '100px', ...rest}) => {
-    return <img src={src} width={width} height={height} {...rest} className='block rounded-full' />
+    return <Image display='block' rounded="full" src={src} htmlWidth={width} htmlHeight={height} {...rest} />
 }
 
 export default Avatar;
