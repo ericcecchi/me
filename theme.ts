@@ -5,7 +5,7 @@ const customTheme = {
     ...theme,
     fonts: {
       ...theme.fonts,
-      body: 'freight-text-pro,' + theme.fonts.body,
+      serif: 'freight-text-pro,' + theme.fonts.body,
     },
     colors: {
         ...theme.colors,

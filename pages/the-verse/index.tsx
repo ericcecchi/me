@@ -1,13 +1,33 @@
-import {Box, Flex} from "@chakra-ui/core";
-import Page from "../../components/Page";
-import RetroHeading from "../../components/RetroHeading";
+import { Button } from '@chakra-ui/core';
+import React from 'react';
+import {
+  AccountModal,
+  AccountProvider,
+} from '../../components/account/AccountModal';
+import Page from '../../components/Page';
+import RetroHeading from '../../components/RetroHeading';
+import { useAccount } from '../../state/account';
+
+const StartPage = () => {
+  const { viewAccount } = useAccount();
+  return (
+    <Page.Container>
+      <RetroHeading as="h1">The Verse</RetroHeading>
+      <Button mt={5} onClick={viewAccount}>
+        Start
+      </Button>
+
+      <AccountModal />
+    </Page.Container>
+  );
+};
 
 export default function TheVerse() {
-    return (
-        <Page>
-            <Flex height='100vh' alignItems='center' justifyContent='center'>
-                <RetroHeading as='h1'>The Verse</RetroHeading>
-            </Flex>
-        </Page>
-    );
+  return (
+    <AccountProvider>
+      <Page>
+        <StartPage />
+      </Page>
+    </AccountProvider>
+  );
 }

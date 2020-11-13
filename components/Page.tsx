@@ -1,5 +1,13 @@
-import { Box, BoxProps } from "@chakra-ui/core";
+import { Box, BoxProps } from '@chakra-ui/core';
 
-export default function Page(props: BoxProps) {
-    return <Box bg='appBackground' color='white' minH='100vh' w='100%' {...props} />;
+const Container = (props: BoxProps) => {
+  return <Box maxWidth="6xl" p={2} mx="auto" {...props} />;
+};
+
+function Page(props: BoxProps) {
+  return <Box bg="appBackground" minH="100vh" w="100%" {...props} />;
 }
+
+Page.Container = Container;
+
+export default Page;

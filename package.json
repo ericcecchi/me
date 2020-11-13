@@ -8,10 +8,13 @@
     "build": "next build",
     "postbuild": "next-on-netlify",
     "start": "next start",
-    "lint": "prettier --single-quote **/*.js",
+    "lint": "prettier  **/*.{js,ts,jsx,tsx} --write",
     "prettier": "prettier --single-quote --write",
     "test": "npm run lint",
     "export": "npm run build && next export"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "husky": {
     "hooks": {
@@ -20,7 +23,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier --single-quote --write",
+      "prettier --write",
       "git add"
     ]
   },
@@ -36,25 +39,37 @@
   },
   "homepage": "https://github.com/ericcecchi/me#readme",
   "dependencies": {
+    "@capacitor/core": "^2.4.2",
     "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/system": "^1.0.0-next.3",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@types/lodash-es": "^4.17.3",
+    "copy-to-clipboard": "^3.3.1",
     "emotion-theming": "^10.0.27",
+    "lodash-es": "^4.17.15",
     "next": "^10.0.0",
     "next-on-netlify": "^2.6.0",
+    "next-transpile-modules": "^4.1.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.10",
     "react-dom": "^16.10",
+    "react-live": "^2.2.2",
+    "react-query": "^2.25.2",
+    "sjcl": "^1.0.8",
+    "stellar-sdk": "^6.2.0",
     "xterm": "^4.9.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^2.4.2",
     "@types/node": "^14.14.2",
     "@types/react": "^16.9.53",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^1.16.4",
+    "prettier": "^2.1.2",
     "tailwindcss": "^1.9",
     "typescript": "^4.0.3"
   }
