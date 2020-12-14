@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
   Select,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, {
   FunctionComponent,
   SyntheticEvent,
@@ -18,9 +18,7 @@ export type SelectOption = {
   text: string;
 };
 
-type OnChangeFunction = (
-  e: SyntheticEvent<HTMLInputElement | HTMLSelectElement>
-) => void;
+type OnChangeFunction = (e: SyntheticEvent<HTMLElement>) => void;
 
 export interface FormField extends FormControlProps {
   label: string;

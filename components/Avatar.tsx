@@ -1,21 +1,12 @@
-import { Image } from '@chakra-ui/core';
+import React from 'react';
+import { Avatar as ChakraAvatar, AvatarProps } from '@chakra-ui/react';
 
-const Avatar = ({
+const Avatar: React.FC<AvatarProps> = ({
+  name = 'Eric Cecchi',
   src = '/me.jpg',
-  width = '100px',
-  height = '100px',
   ...rest
 }) => {
-  return (
-    <Image
-      display="block"
-      rounded="full"
-      src={src}
-      htmlWidth={width}
-      htmlHeight={height}
-      {...rest}
-    />
-  );
+  return <ChakraAvatar name={name} src={src} {...rest} />;
 };
 
 export default Avatar;

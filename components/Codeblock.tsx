@@ -3,9 +3,9 @@ import {
   BoxProps,
   Button,
   ButtonProps,
-  useClipboard
-} from '@chakra-ui/core';
-import { chakra } from '@chakra-ui/system';
+  useClipboard,
+  chakra,
+} from '@chakra-ui/react';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React, { useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
@@ -14,7 +14,7 @@ import { Language } from 'prism-react-renderer';
 export const liveEditorStyle: React.CSSProperties = {
   fontSize: 14,
   overflowX: 'auto',
-  fontFamily: 'SF Mono, Menlo, monospace'
+  fontFamily: 'SF Mono, Menlo, monospace',
 };
 
 export const liveErrorStyle: React.CSSProperties = {
@@ -23,7 +23,7 @@ export const liveErrorStyle: React.CSSProperties = {
   padding: '1em',
   overflowX: 'auto',
   color: 'white',
-  backgroundColor: 'red'
+  backgroundColor: 'red',
 };
 
 const LiveCodePreview = chakra(LivePreview, {
@@ -32,15 +32,15 @@ const LiveCodePreview = chakra(LivePreview, {
     mt: 5,
     p: 3,
     borderWidth: 1,
-    borderRadius: '12px'
-  }
+    borderRadius: '12px',
+  },
 });
 
 const CopyButton = (props: ButtonProps) => (
   <Button
     size="sm"
     position="absolute"
-    variantColor="teal"
+    colorScheme="teal"
     fontSize="xs"
     height="24px"
     top="1.25em"
@@ -105,7 +105,7 @@ function CodeBlock(props: CodeblockProps) {
     theme,
     language,
     code: editorCode,
-    noInline: manual
+    noInline: manual,
   };
 
   const onChange = (newCode: string) => setEditorCode(newCode.trim());
@@ -157,7 +157,7 @@ function CodeBlock(props: CodeblockProps) {
 }
 
 CodeBlock.defaultProps = {
-  mountStylesheet: false
+  mountStylesheet: false,
 };
 
 export default CodeBlock;

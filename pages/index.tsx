@@ -1,79 +1,83 @@
 import React from 'react';
-import Link from 'next/link';
 import Avatar from '../components/Avatar';
-import { Box, Text } from '@chakra-ui/core';
+import { Box, Text } from '@chakra-ui/react';
 import Anchor from '../components/Anchor';
 import Page from '../components/Page';
+import RetroBox from '../components/RetroBox';
 import RetroHeading from '../components/RetroHeading';
+import { NextSeo } from 'next-seo';
 
 const Home = () => {
   return (
     <Page>
-      <Box as="main" mx="auto" maxWidth="6xl" py={8} px={3}>
-        <Box
-          as="section"
-          id="about"
-          color="white"
-          maxWidth="2xl"
-          mt={{ _: 16, lg: 48 }}
-        >
-          <Box
-            display={{ sm: 'flex' }}
-            alignItems="center"
-            mb={{ _: 5, md: 8 }}
-          >
-            <Box flexShrink={0}>
-              <Avatar />
-            </Box>
-            <RetroHeading as="h1" ml={{ _: 0, sm: 5 }} mt={{ _: 5, sm: 0 }}>
-              I’m a web engineer based in Chicago, IL.
-            </RetroHeading>
-          </Box>
+      <NextSeo
+        title="Home"
+        description="I’m a web engineer based in Chicago, IL. I’ve been making beautiful and functional user experiences on the
+              World Wide Web for over 9 years."
+      />
+      <Page.Container mt={{ base: 8, sm: '10vh' }}>
+        <Box display="flex" alignItems="center" mb={{ base: 5, sm: 8 }}>
+          <RetroBox flexShrink={0} borderRadius="full">
+            <Avatar size={'xl'} />
+          </RetroBox>
 
-          <Box fontFamily="serif" fontSize={{ _: 'l', md: 'xl' }}>
-            <Text>
-              I’ve been making beautiful and functional user experiences on the
-              World Wide Web for over 9 years. I have spent the majority of that
-              time at Sprout Social, where I founded and grew the team web
-              developers tasked with elevating our brand and growing our
-              customer base through digital marketing, including the{' '}
-              <Anchor
-                href="https://sproutsocial.com/"
-                rel="noopener"
-                target="_blank"
-              >
-                website
-              </Anchor>{' '}
-              and{' '}
-              <Anchor
-                href="https://sproutsocial.com/insights/"
-                rel="noopener"
-                target="_blank"
-              >
-                Insights blog
-              </Anchor>
-              , which draw over 1.5 million visitors each month. Now, I manage a
-              team of web and platform engineers building our flagship social
-              media management software product used by over 20,000 customers.
-            </Text>
-
-            <Text mt={{ _: 5, md: 8 }}>
-              I’m a husband and a father, a thinker and a tinkerer, a minimalist
-              and{' '}
-              <Anchor href="http://www.sleepingatlast.com/blog/2018/6/8/five">
-                an observer
-              </Anchor>
-              . You wont’t find me on social media, so you can write me the
-              old-fashioned way at{' '}
-              <a href="mailto:eric.cecchi@gmail.com">eric.cecchi@gmail.com</a>.
-            </Text>
-
-            <Text mt={{ _: 5, md: 8 }} fontWeight="bold">
-              —E
-            </Text>
-          </Box>
+          <RetroHeading as="h1" ml={5}>
+            I’m a software engineer based in Chicago, IL.
+          </RetroHeading>
         </Box>
-      </Box>
+
+        <Box fontSize={{ base: 'l', md: 'xl' }}>
+          <Text>
+            I’ve been making beautiful and functional user experiences on the
+            World Wide Web for over a decade. At Sprout Social, I founded and
+            grew the team web developers tasked with elevating the brand and
+            growing the customer base through digital marketing, including the{' '}
+            <Anchor
+              href="https://sproutsocial.com/"
+              rel="noopener"
+              target="_blank"
+            >
+              website
+            </Anchor>{' '}
+            and{' '}
+            <Anchor
+              href="https://sproutsocial.com/insights/"
+              rel="noopener"
+              target="_blank"
+            >
+              Insights blog
+            </Anchor>
+            , which draw millions of visitors each month.
+          </Text>
+
+          <Text mt={{ base: 5, md: 8 }}>
+            For the past two years, I’ve managed a team of software engineers
+            building Sprout’s flagship social media management product used by
+            over 20,000 customers. Beyond building new features, I’m a fierce
+            advocate for improving our app’s UI and UX, accessibility, and
+            performance.
+          </Text>
+
+          <Text mt={{ base: 5, md: 8 }}>
+            I’m a husband and a father, a thinker and a tinkerer, a minimalist
+            and{' '}
+            <Anchor
+              href="http://www.sleepingatlast.com/blog/2018/6/8/five"
+              rel="noopener"
+              target="_blank"
+            >
+              an observer
+            </Anchor>
+            . You wont’t find me on social media, so you can write me the
+            old-fashioned way at{' '}
+            <a href="mailto:eric.cecchi@gmail.com">eric.cecchi@gmail.com</a>.
+          </Text>
+
+          <Text mt={{ base: 5, md: 8 }} fontWeight="bold">
+            —E
+          </Text>
+        </Box>
+      </Page.Container>
     </Page>
   );
 };

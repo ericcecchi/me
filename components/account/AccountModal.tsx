@@ -1,6 +1,5 @@
 import {
   Button,
-  Collapse,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -15,7 +14,13 @@ import {
   StatLabel,
   StatNumber,
   StatHelpText,
-} from '@chakra-ui/core';
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  AccordionIcon,
+  AccordionButton,
+  Box,
+} from '@chakra-ui/react';
 import React, {
   FunctionComponent,
   useCallback,
@@ -46,8 +51,6 @@ import { FormField, useInput } from '../FormField';
 
 const ViewAccountContent: FunctionComponent = () => {
   const { account, onClose, dispatch } = useAccount();
-  const [show, setShow] = React.useState(false);
-  const handleToggle = useCallback(() => setShow(!show), [show, setShow]);
   const handleSignout = useCallback(
     () => dispatch(setModalContent(DeleteAccountContent)),
     [dispatch]
@@ -64,6 +67,7 @@ const ViewAccountContent: FunctionComponent = () => {
             </StatNumber>
             <StatHelpText>
               Last updated:{' '}
+              {/* @ts-ignore last_modified_time does exist on the base response */}
               {new Date(account.state?.last_modified_time).toLocaleString()}
             </StatHelpText>
           </Stat>
@@ -72,7 +76,7 @@ const ViewAccountContent: FunctionComponent = () => {
 
       <Button
         display="block"
-        variantColor="purple"
+        colorScheme="purple"
         mb={3}
         onClick={() => dispatch(setModalContent(MakePaymentContent))}
       >
@@ -88,28 +92,35 @@ const ViewAccountContent: FunctionComponent = () => {
       <ModalBody>
         {accountInfo}
 
-        <Button size="sm" variant="link" onClick={handleToggle}>
-          {show ? 'Hide advanced options' : 'Show advanced options'}
-        </Button>
-        <Collapse mt={4} isOpen={show}>
-          <Text fontSize="sm" fontWeight="bold">
-            Public key
-          </Text>
-          {account?.publicKey && (
-            <CodeBlock mt={2} p={2}>
-              {account.publicKey}
-            </CodeBlock>
-          )}
-          <Button
-            mr={3}
-            onClick={() => dispatch(setModalContent(CopySecretContent))}
-          >
-            Copy Secret Key
-          </Button>
-          <Button variantColor="red" onClick={handleSignout}>
-            Delete Account
-          </Button>
-        </Collapse>
+        <Accordion mt={4} allowToggle>
+          <AccordionItem>
+            <AccordionButton>
+              <Box flex={1} textAlign="left">
+                Advanced options
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel>
+              <Text fontSize="sm" fontWeight="bold">
+                Public key
+              </Text>
+              {account?.publicKey && (
+                <CodeBlock mt={2} p={2}>
+                  {account.publicKey}
+                </CodeBlock>
+              )}
+              <Button
+                mr={3}
+                onClick={() => dispatch(setModalContent(CopySecretContent))}
+              >
+                Copy Secret Key
+              </Button>
+              <Button colorScheme="red" onClick={handleSignout}>
+                Delete Account
+              </Button>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </ModalBody>
 
       <ModalFooter>
@@ -176,7 +187,7 @@ const CreateAccountContent: FunctionComponent = () => {
             Close
           </Button>
           <Button
-            variantColor="purple"
+            colorScheme="purple"
             type="submit"
             isLoading={isLoading}
             isDisabled={!isValid || isLoading}
@@ -238,7 +249,7 @@ const DeleteAccountContent: FunctionComponent = () => {
             Cancel
           </Button>
           <Button
-            variantColor="red"
+            colorScheme="red"
             type="submit"
             isLoading={isLoading}
             isDisabled={!isValid || isLoading}
@@ -324,7 +335,7 @@ const MakePaymentContent: FunctionComponent = () => {
             Cancel
           </Button>
           <Button
-            variantColor="red"
+            colorScheme="red"
             type="submit"
             isLoading={isLoading}
             isDisabled={!isValid || isLoading}
@@ -400,7 +411,7 @@ const EnterPasscodeContent: FunctionComponent<EnterPasscodeContentProps> = ({
           <Button variant="ghost" mr={3} onClick={onCancel}>
             Cancel
           </Button>
-          <Button variantColor="purple" type="submit" isDisabled={!isValid}>
+          <Button colorScheme="purple" type="submit" isDisabled={!isValid}>
             Continue
           </Button>
         </ModalFooter>

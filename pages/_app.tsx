@@ -1,21 +1,19 @@
 import React from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import App from 'next/app';
-import Head from 'next/head';
-import theme from '../theme';
+import { DefaultSeo } from 'next-seo';
+import { Theme } from '../components/Theme';
+
+import SEO from '../next-seo.config';
 
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
-        <CSSReset />
-        <Head>
-          <link rel="stylesheet" href="https://use.typekit.net/vdz0bbb.css" />
-        </Head>
+      <Theme>
+        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
-      </ThemeProvider>
+      </Theme>
     );
   }
 }
