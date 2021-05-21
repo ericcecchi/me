@@ -44,7 +44,7 @@
     "@chakra-ui/system": "^1.0.1",
     "@chakra-ui/theme-tools": "^1.0.1",
     "@emotion/babel-preset-css-prop": "^11.0.0",
-    "@emotion/react": "^11.0.0",
+    "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.0.0",
     "@mdx-js/loader": "^1.6.21",
     "@mdx-js/runtime": "^1.6.21",
