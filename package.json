@@ -69,7 +69,7 @@
     "reading-time": "^1.3.0",
     "rehype-autolink-headings": "^5.0.1",
     "remark-capitalize": "^1.1.0",
-    "remark-code-titles": "^0.1.1",
+    "remark-code-titles": "^0.1.2",
     "sjcl": "^1.0.8",
     "stellar-sdk": "^8.2.1",
     "xterm": "^4.12.0"
