@@ -71,12 +71,12 @@
     "remark-capitalize": "^1.1.0",
     "remark-code-titles": "^0.1.2",
     "sjcl": "^1.0.8",
-    "stellar-sdk": "^8.2.1",
+    "stellar-sdk": "^8.2.2",
     "xterm": "^4.12.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^3.0.0",
-    "@types/node": "^15.12.0",
+    "@types/node": "^15.12.1",
     "@types/react": "^17.0.9",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
