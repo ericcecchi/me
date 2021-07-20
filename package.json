@@ -48,7 +48,7 @@
     "@emotion/styled": "^11.3.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/runtime": "^1.6.22",
-    "@next/mdx": "^10.2.3",
+    "@next/mdx": "^11.0.1",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@types/lodash-es": "^4.17.4",
     "copy-to-clipboard": "^3.3.1",
