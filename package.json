@@ -48,7 +48,7 @@
     "@emotion/styled": "^11.3.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/runtime": "^1.6.22",
-    "@next/mdx": "^10.2.3",
+    "@next/mdx": "^11.0.1",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@types/lodash-es": "^4.17.4",
     "copy-to-clipboard": "^3.3.1",
@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^3.0.1",
-    "@types/node": "^15.12.2",
+    "@types/node": "^16.3.3",
     "@types/react": "^17.0.11",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
