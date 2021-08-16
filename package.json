@@ -65,7 +65,7 @@
     "react-dom": "^16.10",
     "react-icons": "^4.2.0",
     "react-live": "^2.3.0",
-    "react-query": "^2.25.2",
+    "react-query": "^3.19.6",
     "reading-time": "^1.4.0",
     "rehype-autolink-headings": "^6.0.0",
     "remark-capitalize": "^1.1.0",
