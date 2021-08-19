@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/ericcecchi/me#readme",
   "dependencies": {
-    "@capacitor/core": "^3.1.2",
+    "@capacitor/core": "^3.2.0",
     "@chakra-ui/icons": "^1.0.15",
     "@chakra-ui/react": "^1.0.3",
     "@chakra-ui/system": "^1.0.1",
