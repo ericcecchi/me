@@ -42,7 +42,7 @@
     "@chakra-ui/icons": "^1.0.15",
     "@chakra-ui/react": "^1.0.3",
     "@chakra-ui/system": "^1.0.1",
-    "@chakra-ui/theme-tools": "^1.1.9",
+    "@chakra-ui/theme-tools": "^1.2.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
