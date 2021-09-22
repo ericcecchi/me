@@ -59,7 +59,7 @@
     "next-mdx-enhanced": "^5.0.0",
     "next-mdx-remote": "^1.0.0",
     "next-seo": "^4.28.1",
-    "next-transpile-modules": "^7.2.0",
+    "next-transpile-modules": "^8.0.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^16.10",
     "react-dom": "^16.10",
