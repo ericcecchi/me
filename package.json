@@ -57,7 +57,7 @@
     "lodash-es": "^4.17.21",
     "next": "^10.0.0",
     "next-mdx-enhanced": "^5.0.0",
-    "next-mdx-remote": "^1.0.0",
+    "next-mdx-remote": "^3.0.6",
     "next-seo": "^4.28.1",
     "next-transpile-modules": "^7.2.0",
     "prism-react-renderer": "^1.2.1",
