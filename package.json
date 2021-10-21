@@ -78,7 +78,7 @@
     "@capacitor/cli": "^3.2.5",
     "@types/node": "^16.11.1",
     "@types/react": "^17.0.30",
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
