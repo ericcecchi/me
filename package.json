@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^3.2.5",
-    "@types/node": "^16.11.1",
+    "@types/node": "^16.11.3",
     "@types/react": "^17.0.31",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
