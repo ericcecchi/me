@@ -41,7 +41,7 @@
     "@capacitor/core": "^3.3.1",
     "@chakra-ui/icons": "^1.0.17",
     "@chakra-ui/react": "^1.0.3",
-    "@chakra-ui/system": "^1.0.1",
+    "@chakra-ui/system": "^1.8.0",
     "@chakra-ui/theme-tools": "^1.2.3",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.5.0",
