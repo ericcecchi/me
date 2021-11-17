@@ -71,7 +71,7 @@
     "remark-capitalize": "^1.1.0",
     "remark-code-titles": "^0.1.2",
     "sjcl": "^1.0.8",
-    "stellar-sdk": "^9.0.1",
+    "stellar-sdk": "^9.1.0",
     "xterm": "^4.15.0"
   },
   "devDependencies": {
