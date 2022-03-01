@@ -72,7 +72,7 @@
     "remark-code-titles": "^0.1.2",
     "sjcl": "^1.0.8",
     "stellar-sdk": "^10.0.1",
-    "xterm": "^4.17.0"
+    "xterm": "^4.18.0"
   },
   "devDependencies": {
     "@capacitor/cli": "^3.4.1",
