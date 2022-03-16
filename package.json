@@ -82,7 +82,7 @@
     "lint-staged": "^12.3.5",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.1",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "tailwindcss": "^1.9",
     "typescript": "^4.0.3"
   }
