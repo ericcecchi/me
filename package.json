@@ -75,7 +75,7 @@
     "xterm": "^4.18.0"
   },
   "devDependencies": {
-    "@capacitor/cli": "^3.4.3",
+    "@capacitor/cli": "^3.5.0",
     "@types/node": "^17.0.27",
     "@types/react": "^17.0.43",
     "husky": "^7.0.4",
