@@ -77,7 +77,7 @@
   "devDependencies": {
     "@capacitor/cli": "^3.5.1",
     "@types/node": "^17.0.31",
-    "@types/react": "^17.0.43",
+    "@types/react": "^18.0.9",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "postcss-easy-import": "^3.0.0",
