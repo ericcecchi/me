@@ -52,7 +52,7 @@
     "@silvenon/remark-smartypants": "^2.0.0",
     "@types/lodash-es": "^4.17.6",
     "copy-to-clipboard": "^3.3.1",
-    "date-fns": "^2.28.0",
+    "date-fns": "^2.29.0",
     "framer-motion": "^2.9.5",
     "lodash-es": "^4.17.21",
     "next": "^10.0.0",
