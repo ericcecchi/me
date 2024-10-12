@@ -1,11 +1,9 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
-import Anchor from '../components/Anchor';
-import Page from '../components/Page';
-import TimelineCard from '../components/TimelineCard';
-import RetroHeading from '../components/RetroHeading';
-import { Stack, Heading, Text, Box } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Anchor } from '../components/anchor';
+import { Page } from '../components/page';
+import { TimelineCard } from '../components/timeline-card';
+import { PageTitle } from '../components/page-title';
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
 
 const timeline = [
   {
@@ -174,59 +172,72 @@ const timeline = [
     content:
       'Yep, Staff, like a wizard, but less awesome. (Still a pretty great job, though.)',
   },
+  {
+    date: '04-2021',
+    title: 'Joined Arcadia to solve climate change',
+    content:
+      'My passion for making a positive impact on the world led me to join Arcadia, a company on the front lines of the fight against climate change. I joined as an Engineering Manager to grow and lead a team of engineers building the billing and payments platform.',
+  },
+  {
+    date: '09-2021',
+    title: 'Promoted to Senior Engineering Manager',
+    content:
+      'We were growing fast and I was growing with the company. Our CTO took me under his wing and gave me the opportunity to make a broader impact. I took on managing multiple teams and led the initiatives such as revamping the engineering career ladder and building a new onboarding program.',
+  },
 ];
 const reverseTimeline = timeline.slice().reverse();
 
 export const Work: React.FC = () => {
   return (
-    <Page>
+    <>
       <NextSeo
         title="My Work"
         description="A wayward path from humble beginnings to engineering management at
           Chicago’s beloved unicorn startup, Sprout Social."
       />
 
-      <Page.Container>
-        <RetroHeading mb={[10, null, 12]}>
-          A (sort of) brief history of me
-        </RetroHeading>
+      <Page>
+        <div className="space-y-6">
+          <PageTitle>A (sort of) brief history of me</PageTitle>
 
-        <Text fontSize="xl">
-          A wayward path from humble beginnings to engineering management at
-          Chicago’s beloved unicorn startup, Sprout Social.
-        </Text>
+          <p className="text-lg">
+            A wayward path from humble beginnings to engineering management at
+            Chicago’s beloved{' '}
+            <Anchor
+              href="https://investors.sproutsocial.com/news/news-details/2019/Sprout-Social-Announces-Launch-of-Initial-Public-Offering/default.aspx"
+              rel="noopener"
+              target="_blank"
+            >
+              unicorn
+            </Anchor>{' '}
+            startup, Sprout Social, to building an industry-leading community
+            solar platform at Arcadia.
+          </p>
 
-        <Box mt={10}>
           {reverseTimeline.map(({ content, date, title, link }) => {
             return (
               <TimelineCard key={title} date={date}>
-                <Stack spacing={[1, null, 2]}>
-                  <Heading as="h2" size="sm">
-                    {title}
-                  </Heading>
+                <h2 className="text-xl font-semibold mb-2">&gt; {title}</h2>
 
-                  {content && (
-                    <Text fontSize={['xs', null, 'sm']}>{content}</Text>
-                  )}
+                {content && <p>{content}</p>}
 
-                  {link && (
-                    <Anchor
-                      href={link.href}
-                      fontSize={['xs', null, 'sm']}
-                      rel="noopener"
-                      target="_blank"
-                    >
-                      {link.text}
-                      <ExternalLinkIcon ml={1} />
-                    </Anchor>
-                  )}
-                </Stack>
+                {link && (
+                  <Anchor
+                    href={link.href}
+                    rel="noopener"
+                    target="_blank"
+                    className="font-semibold mt-4 flex items-center space-x-1"
+                  >
+                    <span>{link.text}</span>
+                    <ExternalLinkIcon />
+                  </Anchor>
+                )}
               </TimelineCard>
             );
           })}
-        </Box>
-      </Page.Container>
-    </Page>
+        </div>
+      </Page>
+    </>
   );
 };
 
