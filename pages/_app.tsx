@@ -1,21 +1,14 @@
-import React from 'react';
-import App from 'next/app';
 import { DefaultSeo } from 'next-seo';
-import { Theme } from '../components/Theme';
+import './global.css';
 
-import SEO from '../next-seo.config';
+import SEO from '../next-seo.config.mjs';
+import { AppProps } from 'next/app';
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props;
-
-    return (
-      <Theme>
-        <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
-      </Theme>
-    );
-  }
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
+    </>
+  );
 }
-
-export default MyApp;

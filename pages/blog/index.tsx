@@ -1,117 +1,102 @@
-import hydrate from 'next-mdx-remote/hydrate';
 import { NextSeo } from 'next-seo';
-import Anchor from '../../components/Anchor';
-import Page from '../../components/Page';
+import { Page } from '../../components/page';
 import { getAllPosts } from '../../lib/getAllPosts';
 import React from 'react';
-import {
-  Box,
-  Flex,
-  Heading,
-  Image,
-  Stack,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import RetroHeading from '../../components/RetroHeading';
+import { PageTitle } from '../../components/page-title';
 import NextLink from 'next/link';
-import { FormattedDate } from '../../components/FormattedDate';
+import { FormattedDate } from '../../components/formatted-date';
+import { InferGetStaticPropsType } from 'next';
+import { MDXComponents } from '../../components/mdx-components';
+import { MDXRemote } from 'next-mdx-remote';
+import { Card } from '../../components/card';
+import { Anchor } from '../../components/anchor';
 
-const Blog: React.FC<{
-  posts: Post[];
-  prevPosts: number;
-  nextPosts: number;
-}> = ({ posts, prevPosts, nextPosts }) => {
-  const subtextColor = useColorModeValue('brand.800', 'whiteAlpha.800');
-
+function Blog({
+  posts,
+  prevPosts,
+  nextPosts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Page>
+    <>
       <NextSeo
         title="Blog"
         description="I don't write often, but when I do, it's thoroughly medicore."
       />
 
-      <Page.Container py={8} px={3}>
-        <RetroHeading mb={16}>Blog</RetroHeading>
+      <Page>
+        <div className="space-y-6">
+          <PageTitle>Blog</PageTitle>
 
-        <Stack spacing={10}>
           {posts &&
             posts.map((post) => {
-              const content = hydrate(post.excerpt);
-  
               return (
-                <Box as="article" key={post.slug}>
-                  <Flex justifyContent="space-between">
-                    <Heading
-                      as="h2"
-                      pb={2}
-                      position="relative"
-                      size="md"
-                    >
-                      <NextLink href={'/blog/' + post.slug}>
-                        {post.title}
-                      </NextLink>
-                    </Heading>
+                <Card key={post.slug}>
+                  <article>
+                    <header>
+                      {post.date && (
+                        <FormattedDate
+                          to="MMMM d, yyyy"
+                          className="text-sm text-muted"
+                        >
+                          {post.date}
+                        </FormattedDate>
+                      )}
 
-                    {post.date && (
-                      <FormattedDate color={subtextColor} fontSize="sm">
-                        {post.date}
-                      </FormattedDate>
+                      <h2 className="text-xl font-semibold mb-2">
+                        <Anchor href={'/blog/' + post.slug}>
+                          &gt; {post.title}
+                        </Anchor>
+                      </h2>
+                    </header>
+
+                    {post.coverImage && (
+                      <img
+                        src={post.coverImage}
+                        alt={post.coverImageAlt || ''}
+                      />
                     )}
-                  </Flex>
 
-                  {post.coverImage && (
-                    <Image
-                      mt={2}
-                      mb={3}
-                      border={'1px solid'}
-                      borderColor={'rgba(0,0,0,.1)'}
-                      src={post.coverImage}
-                      alt={post.coverImageAlt || ''}
-                    />
-                  )}
-
-                  {post.excerpt && (
-                    <Text color={subtextColor}>{content}</Text>
-                  )}
-                </Box>
+                    {post.excerpt && (
+                      <MDXRemote
+                        {...post.excerpt}
+                        components={{
+                          ...MDXComponents,
+                          p: (props: React.ComponentProps<'p'>) => (
+                            <p {...props} />
+                          ),
+                        }}
+                      />
+                    )}
+                  </article>
+                </Card>
               );
             })}
-        </Stack>
+        </div>
 
-        <Flex fontStyle="italic">
-          <Box width="50%" py={3} textAlign="left">
+        <div className="flex justify-between m-6">
+          <div>
             {prevPosts !== null && (
-              <Anchor as={NextLink} href={'/blog/' + prevPosts}>
+              <NextLink href={`/blog/?page=${prevPosts}`}>
                 « see newer posts
-              </Anchor>
+              </NextLink>
             )}
-          </Box>
+          </div>
 
-          <Box width="50%" py={3} pr={3} textAlign="right">
+          <div>
             {nextPosts !== null && (
-              <Anchor as={NextLink} href={'/blog/' + nextPosts}>
+              <NextLink href={`/blog/?page=${nextPosts}`}>
                 see older posts »
-              </Anchor>
+              </NextLink>
             )}
-          </Box>
-        </Flex>
-      </Page.Container>
-    </Page>
+          </div>
+        </div>
+      </Page>
+    </>
   );
-};
+}
 
 export async function getStaticProps() {
-  const posts = await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'coverImageAlt',
-    'excerpt',
-    'draft',
-  ]);
+  const posts = await getAllPosts();
   const startIndex = 0;
   const endIndex = 10;
   const prevPosts = null;

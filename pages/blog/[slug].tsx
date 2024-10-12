@@ -1,43 +1,39 @@
 import { NextSeo } from 'next-seo';
-import React from 'react';
 import { getAllPosts, getPostBySlug } from '../../lib/getAllPosts';
-import Page from '../../components/Page';
-import Post from '../../components/Post';
-import { GetStaticProps } from 'next';
+import { Page } from '../../components/page';
+import Post from '../../components/post';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-const PostPage: React.FC<{ post: Post }> = ({ post }) => (
-  <Page>
-    <NextSeo
-      title={post.title}
-      description={post.excerpt}
-    />
+function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+  return (
+    <>
+      <NextSeo
+        title={post.title ?? undefined}
+        description={post.excerpt.compiledSource}
+      />
 
-    <Page.Container>
-      <Post post={post} />
-    </Page.Container>
-  </Page>
-);
+      <Page>
+        <Post post={post} />
+      </Page>
+    </>
+  );
+}
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getPostBySlug(params?.slug, [
-    'title',
-    'excerpt',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'coverImage',
-    'coverImageAlt',
-    'draft',
-    'stats',
-  ]);
+export const getStaticProps = (async ({ params }) => {
+  if (!params) {
+    throw new Error('Params are required');
+  }
+  if (typeof params.slug !== 'string') {
+    throw new Error('Slug must be a string');
+  }
+  const post = await getPostBySlug(params.slug);
   return {
     props: { post },
   };
-};
+}) satisfies GetStaticProps;
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug']);
+  const posts = await getAllPosts();
   return {
     paths: posts.map((post) => {
       return {
