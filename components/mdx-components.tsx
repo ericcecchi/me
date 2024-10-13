@@ -1,11 +1,10 @@
 import { Anchor } from './anchor';
-import Link from 'next/link';
 import React from 'react';
 
 export const MDXComponents = {
   a: Anchor,
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="text-lg leading-relaxed mb-6" {...props} />
+    <p className="sm:text-lg leading-relaxed mb-6" {...props} />
   ),
   h1: (props: React.ComponentProps<'h1'>) => (
     <h1 className="text-3xl font-bold mt-6 mb-2" {...props} />
@@ -32,28 +31,31 @@ export const MDXComponents = {
     <ol className="list-decimal pl-6 mb-6" {...props} />
   ),
   li: (props: React.ComponentProps<'li'>) => (
-    <li className="text-lg mb-2" {...props} />
+    <li className="sm:text-lg mb-2" {...props} />
   ),
   blockquote: (props: React.ComponentProps<'blockquote'>) => (
     <blockquote className="border-l-4 pl-4" {...props} />
   ),
   pre: (props: React.ComponentProps<'pre'>) => (
-    <pre className="bg-slate-800 p-4 rounded" {...props} />
+    <pre
+      className="text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-4 rounded"
+      {...props}
+    />
   ),
   code: (props: React.ComponentProps<'code'>) => (
     <code
-      className="text-sm text-slate-100 bg-slate-800 p-1 rounded"
+      className="text-sm text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-1 rounded"
       {...props}
     />
   ),
   inlineCode: (props: React.ComponentProps<'code'>) => (
     <code
-      className="text-sm text-slate-100 bg-slate-800 p-1 rounded"
+      className="text-sm text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-1 rounded"
       {...props}
     />
   ),
   table: (props: React.ComponentProps<'table'>) => (
-    <table className="border-collapse w-full" {...props} />
+    <table className="border-collapse w-full my-6" {...props} />
   ),
   th: (props: React.ComponentProps<'th'>) => (
     <th className="border p-2" {...props} />
@@ -71,5 +73,5 @@ export const MDXComponents = {
   strong: (props: React.ComponentProps<'strong'>) => (
     <strong className="font-semibold" {...props} />
   ),
-  Link,
+  hr: (props: React.ComponentProps<'hr'>) => <hr className="my-6" {...props} />,
 };
