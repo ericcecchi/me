@@ -13,13 +13,17 @@ export function Post({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <div className="space-y-6 mb-12">
         <PageTitle>{post.title}</PageTitle>
 
-        <div className="flex items-center space-x-2 text-sm text-muted">
-          <Avatar className="w-6 h-6 border-2" />
-          <span>Eric Cecchi</span>
-          <span>•</span>
-          <FormattedDate to="MMMM d, yyyy">{post.date ?? ''}</FormattedDate>
-          <span>•</span>
-          <span>{post.stats.text}</span>
+        <div className="sm:flex items-center sm:space-x-2 text-sm text-muted flex-wrap">
+          <div className="flex items-center space-x-2">
+            <Avatar className="w-6 h-6 border-2" />
+            <span>Eric Cecchi</span>
+          </div>
+          <div className="flex items-center mt-2 sm:mt-0 flex-wrap">
+            <span className="hidden sm:inline mr-2">•</span>
+            <FormattedDate to="MMMM d, yyyy">{post.date ?? ''}</FormattedDate>
+            <span className="mx-2">•</span>
+            <span>{post.stats.text}</span>
+          </div>
         </div>
       </div>
 

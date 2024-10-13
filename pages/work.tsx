@@ -200,7 +200,7 @@ export const Work: React.FC = () => {
         <div className="space-y-6">
           <PageTitle>A (sort of) brief history of me</PageTitle>
 
-          <p className="text-lg">
+          <p className="sm:text-lg">
             A wayward path from humble beginnings to engineering management at
             Chicago’s beloved{' '}
             <Anchor

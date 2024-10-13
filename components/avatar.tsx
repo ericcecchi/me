@@ -12,7 +12,7 @@ export function Avatar({
   return (
     <div
       className={cn(
-        `rounded-full border-cyan-500 border-4 overflow-hidden w-8 h-8`,
+        `flex-0 rounded-full border-cyan-500 border-4 overflow-hidden w-8 h-8`,
         className,
       )}
     >
