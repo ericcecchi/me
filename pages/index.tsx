@@ -15,7 +15,7 @@ const Home = () => {
 
       <Page>
         <div className="flex flex-col items-center mt-auto">
-          <header className="md:flex items-center md:space-x-6 mt-24 mb-6">
+          <header className="md:flex items-center md:space-x-6 sm:mt-24 mt-12 mb-6">
             <div className="flex-0 mb-4 md:mb-0">
               <Avatar className="w-24 h-24" />
             </div>
@@ -24,7 +24,7 @@ const Home = () => {
             </PageTitle>
           </header>
 
-          <section className="space-y-6 text-lg leading-relaxed">
+          <section className="space-y-6 sm:text-lg leading-relaxed">
             <p>
               I’ve been making beautiful and functional user experiences on the
               World Wide Web for 15 years. At Sprout Social, I founded and grew
