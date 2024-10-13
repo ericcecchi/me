@@ -81,7 +81,10 @@ const Home = () => {
               </Anchor>
               . You wont’t find me on social media, so you can write me the
               old-fashioned way at{' '}
-              <a href="mailto:eric.cecchi@gmail.com">eric.cecchi@gmail.com</a>.
+              <Anchor href="mailto:eric.cecchi@gmail.com">
+                eric.cecchi@gmail.com
+              </Anchor>
+              .
             </p>
 
             <p>—E</p>

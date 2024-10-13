@@ -4,7 +4,7 @@ import React from 'react';
 export const MDXComponents = {
   a: Anchor,
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="sm:text-lg leading-relaxed mb-6" {...props} />
+    <p className="sm:text-lg leading-loose mb-6" {...props} />
   ),
   h1: (props: React.ComponentProps<'h1'>) => (
     <h1 className="text-3xl font-bold mt-6 mb-2" {...props} />
