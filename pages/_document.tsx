@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Document() {
   return (
@@ -28,6 +29,7 @@ export default function Document() {
           data-ackee-server="https://analytics.ericcecchi.com"
           data-ackee-domain-id="5345d057-3ae1-4d23-8989-4bcef5a2df15"
         />
+        <SpeedInsights />
       </body>
     </Html>
   );
