@@ -4,7 +4,7 @@ import { cn } from '../lib/classnames';
 export function Anchor({ className, ...props }: React.ComponentProps<'a'>) {
   return (
     <a
-      className={cn('text-primary-500 underline break-word', className)}
+      className={cn('text-primary-500 underline break-words', className)}
       {...props}
     />
   );
