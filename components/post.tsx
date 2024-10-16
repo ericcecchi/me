@@ -9,7 +9,7 @@ import { InferGetStaticPropsType } from 'next';
 export function Post({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { content } = post;
   return (
-    <article>
+    <article className="text-pretty">
       <div className="space-y-6 mb-12">
         <PageTitle>{post.title}</PageTitle>
 

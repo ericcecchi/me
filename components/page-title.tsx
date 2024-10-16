@@ -7,7 +7,7 @@ export function PageTitle({
 }: React.HTMLProps<HTMLHeadingElement>) {
   return (
     <h1
-      className={cn('sm:text-4xl text-3xl font-bold mt-12 mb-4', className)}
+      className={cn('sm:text-4xl text-3xl font-bold mt-12 mb-4 text-pretty', className)}
       {...props}
     />
   );
