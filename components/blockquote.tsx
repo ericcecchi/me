@@ -8,7 +8,10 @@ export function Blockquote({
 }: React.ComponentProps<'blockquote'>) {
   return (
     <blockquote
-      className={cn('border-l-4 border-slate-800 pl-4 py-4 my-4', className)}
+      className={cn(
+        'leading-relaxed border-l-4 border-primary-500 pl-6 py-2 my-6',
+        className,
+      )}
       {...props}
     >
       {children}

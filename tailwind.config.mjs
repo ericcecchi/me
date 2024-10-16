@@ -13,7 +13,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        muted: colors.slate[500],
+        muted: colors.slate,
         primary: colors.purple,
       },
       fontFamily: {

@@ -37,8 +37,9 @@ them to be reusable, these components must be flexible enough to be used in a va
 their APIs must be small and unopinionated—what I like to call “dumb components.” Said more eloquently than I ever
 could:
 
-> Modular design hinges on the simplicity and abstract nature of the interface definition between the modules.  
-> — Tim Berners-Lee, *‌Modularity* (2008)[^3]
+> Modular design hinges on the simplicity and abstract nature of the interface definition between the modules.
+>
+> — Tim Berners-Lee, *Modularity* (2008)[^3]
 
 Composing these dumb components within the context of an application is the smart way to solve for the nuances and
 unique requirements of a particular feature.[^2]

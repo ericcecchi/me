@@ -13,7 +13,7 @@ export function Post({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <div className="space-y-6 mb-12">
         <PageTitle>{post.title}</PageTitle>
 
-        <div className="sm:flex items-center sm:space-x-2 text-sm text-muted flex-wrap">
+        <div className="sm:flex items-center sm:space-x-2 text-sm text-muted-600 dark:text-muted-400 flex-wrap">
           <div className="flex items-center space-x-2">
             <Avatar className="w-6 h-6 border-2" />
             <span>Eric Cecchi</span>
