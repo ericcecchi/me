@@ -1,10 +1,14 @@
 import { Anchor } from './anchor';
 import React from 'react';
+import { Blockquote } from './blockquote';
 
 export const MDXComponents = {
   a: Anchor,
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="sm:text-lg leading-loose mb-6" {...props} />
+    <p
+      className="sm:text-lg leading-relaxed mb-6 last-of-type:mb-0"
+      {...props}
+    />
   ),
   h1: (props: React.ComponentProps<'h1'>) => (
     <h1 className="text-3xl font-bold mt-6 mb-2" {...props} />
@@ -25,17 +29,15 @@ export const MDXComponents = {
     <h6 className="text-sm font-bold mt-6 mb-2" {...props} />
   ),
   ul: (props: React.ComponentProps<'ul'>) => (
-    <ul className="list-disc pl-6 mb-6" {...props} />
+    <ul className="list-disc pl-6 mb-6 leading-relaxed" {...props} />
   ),
   ol: (props: React.ComponentProps<'ol'>) => (
-    <ol className="list-decimal pl-6 mb-6" {...props} />
+    <ol className="list-decimal pl-6 mb-6 leading-relaxed" {...props} />
   ),
   li: (props: React.ComponentProps<'li'>) => (
     <li className="sm:text-lg mb-2" {...props} />
   ),
-  blockquote: (props: React.ComponentProps<'blockquote'>) => (
-    <blockquote className="border-l-4 pl-4" {...props} />
-  ),
+  blockquote: Blockquote,
   pre: (props: React.ComponentProps<'pre'>) => (
     <pre
       className="text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-4 rounded"

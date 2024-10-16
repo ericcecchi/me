@@ -36,15 +36,16 @@ function Blog({
                       {post.date && (
                         <FormattedDate
                           to="MMMM d, yyyy"
-                          className="text-sm text-muted"
+                          className="text-sm text-muted-600 dark:text-muted-400"
                         >
                           {post.date}
                         </FormattedDate>
                       )}
 
-                      <h2 className="text-xl font-semibold mb-2">
+                      <h2 className="text-xl font-semibold my-2">
+                        &gt;{' '}
                         <Anchor href={'/blog/' + post.slug}>
-                          &gt; {post.title}
+                          {post.title}
                         </Anchor>
                       </h2>
                     </header>
