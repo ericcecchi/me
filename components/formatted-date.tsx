@@ -14,7 +14,7 @@ export const FormattedDate: React.FC<FormattedDate> = ({
   children,
   ...props
 }) => {
-  const timeZone = 'America/Chicago';
+  const timeZone = 'UTC';
 
   const fromDate = from
     ? toZonedTime(parse(children, from, new Date()), timeZone)
