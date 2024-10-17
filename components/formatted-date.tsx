@@ -1,5 +1,6 @@
 import React from 'react';
 import { format, formatRelative, parse } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 
 interface FormattedDate extends React.ComponentProps<'span'> {
   children: string;
@@ -13,9 +14,11 @@ export const FormattedDate: React.FC<FormattedDate> = ({
   children,
   ...props
 }) => {
+  const timeZone = 'America/Chicago';
+
   const fromDate = from
-    ? parse(children, from, new Date())
-    : new Date(children);
+    ? toZonedTime(parse(children, from, new Date()), timeZone)
+    : toZonedTime(new Date(children), timeZone);
 
   const date =
     to === 'relative'
