@@ -3,10 +3,12 @@ import { PageTitle } from './page-title';
 import { MDXRemote } from 'next-mdx-remote';
 import { Avatar } from './avatar';
 import { FormattedDate } from './formatted-date';
-import { getStaticProps } from '../pages/blog/[slug]';
-import { InferGetStaticPropsType } from 'next';
+import { loader } from '~/routes/blog_.$slug';
+import { useLoaderData } from '@remix-run/react';
 
-export function Post({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+export function Post({
+  post,
+}: ReturnType<typeof useLoaderData<typeof loader>>) {
   const { content } = post;
   return (
     <article className="text-pretty">

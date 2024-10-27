@@ -7,7 +7,7 @@ export function MainNav() {
       <header>
         <nav className="py-6 sm:flex items-center">
           <Anchor
-            href="/"
+            to="/"
             className="font-bold no-underline hover:underline mr-6"
           >
             &gt; ./eric_cecchi
@@ -15,7 +15,7 @@ export function MainNav() {
 
           <ul className="flex-1 flex items-center ml-4 sm:ml-0 mt-2 sm:mt-0">
             <li className="mr-6">
-              <Anchor className="no-underline hover:underline" href="/work">
+              <Anchor className="no-underline hover:underline" to="/work">
                 ./work
               </Anchor>
             </li>
@@ -33,7 +33,7 @@ export function MainNav() {
             </li>
 
             <li className="mr-6">
-              <Anchor className="no-underline hover:underline" href="/blog">
+              <Anchor className="no-underline hover:underline" to="/blog">
                 ./blog
               </Anchor>
             </li>
