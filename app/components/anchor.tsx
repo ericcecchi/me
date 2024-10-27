@@ -13,20 +13,15 @@ function isLinkProps(props: AnchorProps): props is ComponentProps<typeof Link> {
 }
 
 export function Anchor({ className, ...props }: AnchorProps) {
+  const classes = cn(
+    'text-primary-600 dark:text-primary-500 underline break-words',
+    className,
+  );
+
   if (isAnchorProps(props)) {
-    return (
-      <a
-        className={cn('text-primary-500 underline break-words', className)}
-        {...props}
-      />
-    );
+    return <a className={classes} {...props} />;
   } else if (isLinkProps(props)) {
-    return (
-      <Link
-        className={cn('text-primary-500 underline break-words', className)}
-        {...props}
-      />
-    );
+    return <Link className={classes} {...props} />;
   }
 
   return null;

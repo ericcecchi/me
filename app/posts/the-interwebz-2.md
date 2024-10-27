@@ -8,7 +8,7 @@ In [Part 1](/blog/the-interwebz-1), I did a little breakdown (in language my gre
 the Internet is a bunch of computers doing different jobs. A client sends a message, through a series of routers, to a
 server, which sends files and messages back to the client. I made this nifty infographic to illustrate the process:
 
-![The Interwebz][infographic]
+<Interwebz />
 
 BOOM. That’s the Internet. Great Aunt Bethany pondered, “Why do I need to know any of this?” Boy, she likes to ask a lot
 of rhetorical questions. I answered her anyway.

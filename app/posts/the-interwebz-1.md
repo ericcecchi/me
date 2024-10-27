@@ -30,7 +30,7 @@ The Internet is just a bunch of computers connected together, and it’s the one
 just a beautifully designed calculator or typewriter. The computers that make up the Internet do many different jobs,
 and if you’re going to set up a website, it’s important to understand what each computer’s job is.
 
-![The Interwebz](https://dl.dropbox.com/s/l23dxa8i7ixitok/Interwebz-No-Steps.png)
+<InterwebzNoSteps />
 
 ### The Client
 
@@ -111,9 +111,7 @@ in reverse, with the server sending files back to the client through a series of
 
 ## In Summary
 
-![The Interwebz](https://dl.dropbox.com/s/7rfhdjiebkumwwc/Interwebz.png)
-
----
+<Interwebz />
 
 “OK, so what’s the deal? Why do I need to know all this anyway? You’d better not be wasting my time, or right hand to
 God I will grab my switch and give you a good, ol’-fashioned whoopin’.”

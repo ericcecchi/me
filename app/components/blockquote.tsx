@@ -9,7 +9,7 @@ export function Blockquote({
   return (
     <blockquote
       className={cn(
-        'leading-relaxed border-l-4 border-primary-500 pl-6 py-2 my-6',
+        'leading-relaxed border-l-4 border-secondary-500 pl-6 py-2 my-6',
         className,
       )}
       {...props}
