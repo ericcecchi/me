@@ -5,3 +5,137 @@
 .footnotes {
     @apply mt-12 pt-12 border-t border-slate-500 border-dashed;
 }
+
+/*
+Matches mermaid diagrams which have and ID starting with 'mermaid-'
+ */
+[id^="mermaid-"] {
+    @apply my-6;
+
+    p {
+        @apply !text-base !text-slate-900 dark:!text-slate-50;
+    }
+
+    .flowchart-link,
+    .marker {
+        @apply !stroke-slate-600;
+    }
+
+    .marker {
+        @apply !fill-slate-600;
+    }
+
+    .node rect,
+    .node circle,
+    .node polygon {
+        @apply !fill-secondary-100 !stroke-secondary-300 dark:!fill-secondary-800 dark:!stroke-secondary-500;
+    }
+}
+
+/*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+
+.hljs {
+    @apply text-slate-50 bg-slate-800;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+    @apply text-red-300
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+    /* prettylights-syntax-entity */
+    color: #d2a8ff;
+    @apply text-purple-300
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-meta,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+    @apply text-blue-300
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+    @apply text-cyan-300
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-built_in,
+.hljs-symbol {
+    @apply text-orange-300
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+    @apply text-slate-400
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+    @apply text-green-300;
+}
+
+.hljs-subst {
+    @apply text-slate-300
+}
+
+.hljs-section {
+    @apply text-blue-400 font-bold
+}
+
+.hljs-bullet {
+    @apply text-yellow-300;
+}
+
+.hljs-emphasis {
+    @apply italic text-slate-300;
+}
+
+.hljs-strong {
+    @apply text-slate-300 font-bold;
+}
+
+.hljs-addition {
+    @apply text-green-300 bg-green-900;
+}
+
+.hljs-deletion {
+    @apply text-red-300 bg-red-900;
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+    /* purposely ignored */
+}

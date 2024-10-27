@@ -45,13 +45,13 @@ export const MDXComponents = {
   blockquote: Blockquote,
   pre: (props: ComponentProps<'pre'>) => (
     <pre
-      className="text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-4 rounded"
+      className="text-slate-100 bg-slate-800 p-4 rounded my-6 overflow-auto"
       {...props}
     />
   ),
   code: (props: ComponentProps<'code'>) => (
     <code
-      className="text-sm text-slate-100 bg-slate-800 dark:bg-slate-200 dark:text-slate-900 p-1 rounded"
+      className="text-sm text-slate-100 bg-slate-800 p-1 rounded"
       {...props}
     />
   ),
