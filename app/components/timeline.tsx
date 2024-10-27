@@ -44,10 +44,10 @@ export function TimelineCard({
           href={link.href}
           rel="noopener"
           target="_blank"
-          className="font-semibold mt-4 flex items-center space-x-1"
+          className="font-semibold mt-4 inline-block space-x-1"
         >
           <span>{link.text}</span>
-          <ExternalLinkIcon />
+          <ExternalLinkIcon className="inline-block" />
         </Anchor>
       )}
     </Card>

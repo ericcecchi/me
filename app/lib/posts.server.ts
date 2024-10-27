@@ -9,31 +9,17 @@ import remarkSmartypants from '@silvenon/remark-smartypants';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 
-const postsDirectory = join(process.cwd(), 'pages/_posts');
-const pagesDirectory = join(process.cwd(), 'pages');
+const postsDirectory = join(process.cwd(), 'app/posts');
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory).filter((fn) => fn.match(/\.mdx?$/));
 }
 
-export function getPageSlugs() {
-  return fs.readdirSync(pagesDirectory).filter((fn) => fn.match(/\.mdx?$/));
-}
-
-export function getAllSlugs() {
-  return getPageSlugs().concat(getPostSlugs());
-}
-
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.mdx?$/, '');
-  let isPage = false;
-  let filename = getPostSlugs().find((fn) => fn.includes(slug));
-  if (!filename) {
-    filename = getPageSlugs().find((fn) => fn.includes(slug));
-    isPage = true;
-  }
+  const filename = getPostSlugs().find((fn) => fn.includes(slug));
 
-  const fullPath = join(isPage ? pagesDirectory : postsDirectory, filename!);
+  const fullPath = join(postsDirectory, filename!);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content, excerpt } = matter(fileContents);
   const postData = data as Record<string, string | undefined>;
