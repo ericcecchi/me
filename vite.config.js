@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import mdx from '@mdx-js/rollup';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkCapitalize from 'remark-capitalize';
-import remarkSmartypants from '@silvenon/remark-smartypants';
+import remarkSmartypants from 'remark-smartypants';
 import remarkGfm from 'remark-gfm';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 

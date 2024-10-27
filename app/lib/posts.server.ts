@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkCapitalize from 'remark-capitalize';
-import remarkSmartypants from '@silvenon/remark-smartypants';
+import remarkSmartypants from 'remark-smartypants';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 

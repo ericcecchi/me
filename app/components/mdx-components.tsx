@@ -11,10 +11,10 @@ export const MDXComponents = {
     />
   ),
   h1: (props: ComponentProps<'h1'>) => (
-    <h1 className="text-3xl font-bold mt-6 mb-2" {...props} />
+    <h1 className="text-3xl font-bold mt-12 mb-6" {...props} />
   ),
   h2: (props: ComponentProps<'h2'>) => (
-    <h2 className="text-2xl font-bold mt-6 mb-2" {...props} />
+    <h2 className="text-2xl font-bold mt-12 mb-6" {...props} />
   ),
   h3: (props: ComponentProps<'h3'>) => (
     <h3 className="text-xl font-bold mt-6 mb-2" {...props} />
@@ -71,5 +71,7 @@ export const MDXComponents = {
   strong: (props: ComponentProps<'strong'>) => (
     <strong className="font-semibold" {...props} />
   ),
-  hr: (props: ComponentProps<'hr'>) => <hr className="my-6" {...props} />,
+  hr: (props: ComponentProps<'hr'>) => (
+    <hr className="my-12 border-slate-500 border-dashed" {...props} />
+  ),
 };

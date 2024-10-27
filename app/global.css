@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
 .footnotes {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
+    @apply mt-12 pt-12 border-t border-slate-500 border-dashed;
 }
