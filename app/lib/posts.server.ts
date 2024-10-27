@@ -36,6 +36,27 @@ export async function getPostBySlug(slug: string) {
     scope: postData,
   });
 
+  return {
+    title: postData.title ?? null,
+    slug: realSlug,
+    excerpt: postData.excerpt ?? excerpt ?? null,
+    content: contentMdx,
+    date: postData.date,
+    coverImage: postData.coverImage ?? null,
+    coverImageAlt: postData.coverImageAlt ?? null,
+    stats: readingTime(content),
+  };
+}
+
+export async function getPostExcerptBySlug(slug: string) {
+  const realSlug = slug.replace(/\.mdx?$/, '');
+  const filename = getPostSlugs().find((fn) => fn.includes(slug));
+
+  const fullPath = join(postsDirectory, filename!);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, excerpt } = matter(fileContents);
+  const postData = data as Record<string, string | undefined>;
+
   const excerptMdx = await serialize(postData.excerpt ?? excerpt ?? '', {
     mdxOptions: {
       remarkPlugins: [remarkSmartypants],
@@ -46,13 +67,21 @@ export async function getPostBySlug(slug: string) {
   return {
     title: postData.title ?? null,
     slug: realSlug,
-    content: contentMdx,
     excerpt: excerptMdx,
     date: postData.date,
     coverImage: postData.coverImage ?? null,
     coverImageAlt: postData.coverImageAlt ?? null,
-    stats: readingTime(content),
   };
+}
+
+export async function getPostExcerpts() {
+  const slugs = getPostSlugs();
+  const posts = await Promise.all(
+    slugs.map((slug) => getPostExcerptBySlug(slug)),
+  );
+  return posts.sort((post1, post2) =>
+    (post1.date ?? '') > (post2.date ?? '') ? -1 : 1,
+  );
 }
 
 export async function getAllPosts() {
