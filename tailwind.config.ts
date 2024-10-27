@@ -13,6 +13,7 @@ export default {
       colors: {
         muted: colors.slate,
         primary: colors.purple,
+        secondary: colors.cyan,
       },
       fontFamily: {
         sans: ['Fira Mono', 'monospace'],

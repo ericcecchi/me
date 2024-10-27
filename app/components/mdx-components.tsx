@@ -1,8 +1,12 @@
 import { Anchor } from './anchor';
 import { ComponentProps } from 'react';
 import { Blockquote } from './blockquote';
+import { Interwebz } from '~/images/interwebz';
+import { InterwebzNoSteps } from '~/images/interwebz-no-steps';
 
 export const MDXComponents = {
+  Interwebz,
+  InterwebzNoSteps,
   a: Anchor,
   p: (props: ComponentProps<'p'>) => (
     <p
@@ -10,6 +14,7 @@ export const MDXComponents = {
       {...props}
     />
   ),
+  img: (props: ComponentProps<'img'>) => <img className="my-8" {...props} />,
   h1: (props: ComponentProps<'h1'>) => (
     <h1 className="text-3xl font-bold mt-12 mb-6" {...props} />
   ),
@@ -62,10 +67,13 @@ export const MDXComponents = {
   th: (props: ComponentProps<'th'>) => <th className="border p-2" {...props} />,
   td: (props: ComponentProps<'td'>) => <td className="border p-2" {...props} />,
   tr: (props: ComponentProps<'tr'>) => (
-    <tr className="odd:bg-slate-800 even:bg-slate-700" {...props} />
+    <tr
+      className="odd:bg-slate-100 even:bg-slate-50 dark:odd:bg-slate-800 dark:even:bg-slate-700"
+      {...props}
+    />
   ),
   thead: (props: ComponentProps<'thead'>) => (
-    <thead className="bg-slate-900" {...props} />
+    <thead className="bg-white dark:bg-slate-900" {...props} />
   ),
   tbody: (props: ComponentProps<'tbody'>) => <tbody {...props} />,
   strong: (props: ComponentProps<'strong'>) => (
