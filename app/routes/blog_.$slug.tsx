@@ -10,7 +10,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     {
       name: 'description',
-      content: data.post.excerpt.compiledSource,
+      content: data.post.excerpt,
     },
     {
       property: 'og:title',
@@ -18,7 +18,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     {
       property: 'og:description',
-      content: data.post.excerpt.compiledSource,
+      content: data.post.excerpt,
     },
     {
       title: data.post.title,

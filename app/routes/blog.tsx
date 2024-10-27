@@ -8,7 +8,7 @@ import { Card } from '~/components/card';
 import { Anchor } from '~/components/anchor';
 import { useLoaderData } from '@remix-run/react';
 import { json } from '@vercel/remix';
-import { getAllPosts } from '~/lib/posts.server';
+import { getPostExcerpts } from '~/lib/posts.server';
 
 export const meta = [
   {
@@ -87,7 +87,7 @@ export default function Blog() {
 }
 
 export async function loader() {
-  const posts = await getAllPosts();
+  const posts = await getPostExcerpts();
   const startIndex = 0;
   const endIndex = 10;
   const prevPosts = null;
