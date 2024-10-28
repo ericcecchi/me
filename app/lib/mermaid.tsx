@@ -8,7 +8,7 @@ export function Mermaid({ chart }: { chart: string }) {
       theme: 'default',
       securityLevel: 'loose',
       themeCSS: ``,
-      fontFamily: 'Fira Code',
+      fontFamily: 'Fira Mono',
     });
     mermaid.contentLoaded();
   }, []);
