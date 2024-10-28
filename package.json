@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "postinstall": "npx playwright install && npx playwright install-deps",
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "start": "next start",
@@ -54,6 +53,7 @@
     "date-fns-tz": "^3.2.0",
     "gray-matter": "^4.0.3",
     "isbot": "^4.4.0",
+    "mermaid": "^11.3.0",
     "next-mdx-remote": "^5.0.0",
     "playwright": "^1.48.2",
     "react": "^18.2.0",
@@ -61,7 +61,6 @@
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.1",
-    "rehype-mermaid": "^3.0.0",
     "remark-capitalize": "^1.1.0",
     "remark-code-titles": "^0.1.2",
     "remark-gfm": "^4.0.0",

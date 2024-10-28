@@ -9,7 +9,6 @@ import remarkSmartypants from 'remark-smartypants';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeMermaid from 'rehype-mermaid';
 
 const postsDirectory = join(process.cwd(), 'app/posts');
 
@@ -33,7 +32,7 @@ export async function getPostBySlug(slug: string) {
         remarkSmartypants,
         remarkGfm,
       ],
-      rehypePlugins: [rehypeAutolinkHeadings, rehypeHighlight, rehypeMermaid],
+      rehypePlugins: [rehypeAutolinkHeadings, rehypeHighlight],
     },
     scope: postData,
   });

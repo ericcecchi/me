@@ -3,10 +3,12 @@ import { ComponentProps } from 'react';
 import { Blockquote } from './blockquote';
 import { Interwebz } from '~/images/interwebz';
 import { InterwebzNoSteps } from '~/images/interwebz-no-steps';
+import { Mermaid } from '~/lib/mermaid';
 
 export const MDXComponents = {
   Interwebz,
   InterwebzNoSteps,
+  Mermaid,
   a: Anchor,
   p: (props: ComponentProps<'p'>) => (
     <p

@@ -89,14 +89,13 @@ individual messages. Initially, feature toggles were baked directly into the mes
 abstracted into a configuration. This allowed the same message data to be rendered differently depending on app context,
 message type, or user permissions.
 
-```mermaid
-flowchart LR
+<Mermaid chart={`graph LR
     Base[Base Config] --> M{Merge}
     Plan[Plan Features] --> M
     User[User Permissions] --> M
     M --> Final[Final Configuration]
-    Final --> List[Message List]
-```
+    Final --> Message[Message Component]
+`} />
 
 Applying the same concept to the message list components was relatively straightforward. We began by listing all the
 features supported across message lists. We set each feature’s default to “false” to give us a blank slate, and then we
