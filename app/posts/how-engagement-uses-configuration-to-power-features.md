@@ -1,101 +1,169 @@
 ---
-title: "How Engagement uses configuration to power features"
+title: "How Sprout’s Inbox uses configuration to power features"
 date: "2020-11-01"
 excerpt: "It was familiar; it was fast. It *worked*. But as I started copying and pasting code from the Inbox, I thought, *there’s got to be a better way*."
 ---
 
 > Or, how we created a feature by deleting code
 
-The time had come to build yet another list of messages. It was no surprise; this is what we do in Engagement, and it
-had been a solid 6 months since we last built a list of messages. We could have done what we’ve been doing for years
-when creating new lists of messages: create a layout file, create a new instance of the MessageList component, create a
-new RightRail component, initialize the data layer, create the fetching logic. It was familiar; it was fast. It
-*worked*. But as I started copying and pasting code from the Inbox, I thought, *there’s got to be a better way*.
+"Copy, paste, modify, repeat." That was our mantra for building message lists on the Sprout Social Smart Inbox team.
+Each time we needed a new one—whether for the Smart Inbox, Reviews, or Team Reports—we'd dutifully follow our well-worn
+path: create a layout file, instantiate the MessageList component, add a Sidebar, set up the data layer. It was
+familiar. It was fast. It *worked*.
 
-Of course, there are always better ways. And we’ve all made the error of premature optimization. But when patterns
-emerge, so do opportunities to *maturely* optimize. This is what I saw when I looked at InboxMessageList,
-FeedsMessageList, ReviewsMessageList, and TeamMemberMessageList—as I faced the choice to create a
-ReplyApprovalMessageList. (And right rail, and message saga, and message fetching service, and so on.)
+But as I started copying and pasting code from the Inbox yet again, I thought, *there's got to be a better way*.
 
-Now, these components were not identical. They supported different features. They had different types of filters. They
-called different endpoints to retrieve messages. But they had a lot more in common than they differed. They composed
-many of the same subcomponents. They had very similar layouts. They stored messages and filter configurations in the
-same part of the store and in the same shape. Could there be a way to unite these similarities and solve for the
+This is the story of how we eliminated thousands of lines of code by replacing copy-paste development with something
+more elegant: configuration.
+
+## The Right Time to Abstract
+
+Of course, there is often a better way—and while premature optimization is a trap, mature patterns present opportunities
+for meaningful improvements. When I looked at our various message lists—`InboxMessageList`, `FeedsMessageList`,
+`ReviewsMessageList`, `TeamMemberMessageList`—I realized they shared much more in common than they differed. Instead of
+creating a new ReplyApprovalMessageList by copying code again, I wondered if we could generalize and simplify.
+
+The different message lists weren’t identical. They had different features, filters, and data sources. But
+fundamentally, they composed many of the same subcomponents, shared a similar layout, and stored data in the same part
+of the store with the same shape. Could we unite these similarities and create a flexible structure that solved for the
 differences?
 
-At the UI level, we initially solved for the differences using **composition**. Composition takes advantage of the
-modularity of UI components to enable a high level of reusability. By breaking down UI components into small enough
-pieces, we can create progressively larger components that compose the same smaller building blocks in different ways to
-meet a variety of use cases.[^1]
+## Optimizing Through Composition
 
-> *Composition*: Breaking things down into small, abstract pieces and putting them together to make new, bigger things.
+At the UI level, we initially solved these variations using **composition**. By breaking down UI components into small,
+modular pieces[^1], we could reuse and reassemble them to serve different purposes. This approach worked well,
+especially
+for our smallest components, which lived in our design system[^2] and were flexible enough to be used across various
+applications.
 
-At lowest level, optimizing for composability makes sense; after all, it is a foundational principle of modular design
-systems, and most of our smallest components live within the design system itself. The smallest components are distinct
-from each other in function and form—there is almost no overlap in how they are built and the purpose they serve. For
-them to be reusable, these components must be flexible enough to be used in a variety of applications and contexts; thus
-their APIs must be small and unopinionated—what I like to call “dumb components.” Said more eloquently than I ever
-could:
+> *Composition*: Breaking things down into small, reusable pieces and putting them together to make new, larger things.
 
-> Modular design hinges on the simplicity and abstract nature of the interface definition between the modules.
+These smaller, “*dumb components*” had simple APIs and no preconceived notions about how they would be used. They were
+flexible, and they made building larger components easy. As Tim Berners-Lee put it:
+
+> "Modular design hinges on the simplicity and abstract nature of the interface definition between the modules."
 >
 > — Tim Berners-Lee, *Modularity* (2008)[^3]
 
-Composing these dumb components within the context of an application is the smart way to solve for the nuances and
-unique requirements of a particular feature.[^2]
+As we built larger components from smaller ones, we found diminishing returns. The larger components were too similar to
+justify repetition but too specific to be broken down further for reuse. We needed a shared abstraction that allowed us
+to reuse code while maintaining flexibility.
 
-As we build increasingly larger components from smaller ones, the benefits of composability start to wane. Larger
-components look less distinct from each other because they are comprised of the same subcomponents. We don’t plan on
-composing large components because it doesn’t make sense to. This is fine—optimizing for composability is hard and it
-can take a long time. Just because we willingly sacrifice composability in opinionated monolith components doesn’t mean
-we need to sacrifice *reusability*. When code duplication emerges, so do patterns. An opportunity to optimize presents
-itself. We need a new abstraction.
+## From Composition to Configuration
 
-The section-specific components for the message list, right rail, and header are large components that share a lot of
-the same small components. Essentially, these larger components exist to set some configuration variables and create the
-page layout. The main differences in the UI stem from what **features** are supported in that section of the app. If we
-could control the visibility of features, we could combine these section-specific layout components into generic, shared
-layout components.
+The section-specific components for the message list, sidebar, and header were large but similar. They primarily set
+configuration variables and established layout. For example, the Smart inbox supported keyboard mode, bulk actions, and
+search, while the Reviews page did not. The components for these sections were structured like this:
 
-Each message list that Engagement owns—the Smart Inbox, Reply Approval, Feeds, Reviews, and the Team Report—uses a
-subset of all available message list features, such as keyboard mode, collision detection, search, bulk actions, spike
-alerts, and more. While the availability of a message list feature can be represented by a boolean value, many
-overlapping factors go into computing this value: app context, customer plan, and user permissions, to name a few.
-Handling these calculations in the UI and data layer led to complex conditionals repeated in multiple places. In other
-words feature availability in message lists was ripe for abstraction.
+```jsx
+<InboxLayout>
+  <InboxMessageList />
+  <KeyboardMode />
+  <InboxBulkActions />
+  <InboxSidebar />
+</InboxLayout>
 
-So there seemed to be a path to consolidation, to One Message List to Rule Them All. First, we needed to abstract
-feature availability to a separate, shared configuration layer. Next, we needed to implement this configuration in
-message list UI and data layer. Finally, we could replace the individual, bespoke message list components with instances
-of the config-powered one and delete All the Things. This is what I did.
+<ReviewsLayout>
+  <ReviewsMessageList />
+  <ReviewsSidebar />
+</ReviewsLayout>
+```
 
-The idea for this kind of configuration layer was not new; in fact, the concept was taken from how we handle feature
-availability within messages themselves. At first, feature configuration happened within the message component. Then, it
-was abstracted into a separate config. Over time, that config was expanded to handle more layers of boolean logic for
-hiding are disabling features in the message UI. Now, the same message component with the same message data can be
-rendered differently based on app context, message type, user permissions, or application state. It works really well.
+The main differences were which **features** each section supported—keyboard mode, search, bulk actions, and more.
 
-Applying this concept to the message list layout components was pretty straightforward. First, we listed out all the
-features supported in message lists throughout the app. The default for feature in the config would be `false` to give
-us a blank slate to build on. Then, we created a matrix of feature availability based on the type of message list, which
-would serve as the defaults for that section of the app, overriding the falsely default values as needed. The next
-layers would be special configuration overrides for things like Saved Views or the Smart Inbox, which has the broadest
-set of feature support. Finally, user permissions and the customer plan capabilities could override the determined
-feature availability up to this point. If by the end of these checks a feature is `true`, we should show that feature in
-the UI, perform any necessary actions such as fetching data, and set up event listeners to enable its use. If the
-feature is `false`, we don’t do any of that.
+Instead of composing new components, what if we used a configuration layer to drive the differences? Each message list
+in the app—the Smart Inbox, Reply Approval, Feeds, Reviews, Team Report—used a different subset of the same broader
+feature set. Depending on a set of factors, such as the context, plan level, or user permissions, these features could
+be
+toggled on or off. Handling all these conditions repeatedly across different places led to redundant, complex code that
+was ripe for abstraction.
 
-With this new feature config in hand, we could go about implementing it in the inbox message list components (which had
-most features turned on). This involved simply pulling in the config values and replacing the existing conditionals.
-Then we swapped in the config-based component everywhere we could, and voila—thousands of lines of code could be
-obliterated.
+To move forward, we consolidated feature availability into a separate, shared configuration layer. By managing features
+through configuration, we could unify the message list components, reduce redundancy, and make the feature toggling
+logic reusable across the entire app.
 
-So, how did we build the new reply approval message list? We didn’t. We used the inbox message list (and the rest of the
-inbox layout components) and just turned on the features we needed for this new “type.” The config is 25 lines of code,
-and the initial state for the list is created with 19 lines of code. With this minimal bootstrapping done, we could
-quickly move our focus onto building new features. The total code written for creating the Reply Approval message list
-never came close to the amount of code deleted, so we effectively created a feature by removing code. We should do that
-more often.
+## Implementing the Configuration Layer
+
+The idea of using a configuration layer wasn’t entirely new—we’d done something similar for handling features within
+individual messages. Initially, feature toggles were baked directly into the message components, but later they were
+abstracted into a configuration. This allowed the same message data to be rendered differently depending on app context,
+message type, or user permissions.
+
+<Mermaid chart={`graph LR
+    Base[Base Config] --> M{Merge}
+    Plan[Plan Features] --> M
+    User[User Permissions] --> M
+    M --> Final[Final Configuration]
+    Final --> Message[Message Component]
+`} />
+
+Applying the same concept to the message list components was relatively straightforward. We began by listing all the
+features supported across message lists. We set each feature’s default to “false” to give us a blank slate, and then we
+created a matrix of feature availability by message list type. This matrix would serve as the defaults, which could be
+further overridden by special configurations (e.g., for Saved Views) or by user permissions and plan capabilities.
+In pseudo-code, it looked like this:
+
+```jsx
+const intialConfig = {
+  smartInbox: {
+    keyboardMode: true,
+    bulkActions: true,
+    search: true,
+  },
+  reviews: {
+    keyboardMode: false,
+    bulkActions: false,
+    search: true,
+  },
+  replyApproval: {
+    keyboardMode: false,
+    bulkActions: false,
+    search: false,
+  },
+  // ...
+};
+
+function getMessagesListConfig(type) {
+  // Starting with the initial config, we can override the defaults with special configurations or user/plan features.
+  let features = intialConfig[type];
+  getFeaturesForPlan(features);
+  getFeaturesForUser(features);
+
+  return features;
+}
+```
+
+Once the feature configuration was fully implemented, we updated the inbox message list components to use these config
+values. This allowed us to replace all the individual, bespoke message list components with a single, configurable
+one—and delete a lot of duplicated code:
+
+```jsx
+function MessageList({ type }) {
+  const features = getMessagesListConfig(type);
+
+  return (
+    <Layout>
+      <MessageList features={features} />
+      {features.keyboardMode && <KeyboardMode />}
+      {features.bulkActions && <BulkActions />}
+      {features.search && <Search />}
+      <Sidebar features={features} />
+    </Layout>
+  );
+}
+
+// All the bespoke message list components could now be replaced with a single, configurable one:
+<MessageList type="smartInbox" />
+```
+
+## Creating by Deleting
+
+So, how did we build the new Reply Approval message list? We didn’t. Instead, we used the inbox message list and simply
+configured it for Reply Approval. The configuration was just 25 lines of code, and the initial state was set up in 19
+lines. This minimal setup meant we could quickly move our focus onto building new features, and ultimately, the amount
+of code deleted far exceeded the amount written.
+
+We created a feature by removing code. We should do that more often.
 
 [^1]: See [A primer on Atomic Design](/blog/a-primer-on-atomic-design/) for more on the topic of modular design and
 development methodology.
