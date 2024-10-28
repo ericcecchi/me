@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "postinstall": "npx playwright install",
+    "postinstall": "npx playwright install && npx playwright install-deps",
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "start": "next start",
