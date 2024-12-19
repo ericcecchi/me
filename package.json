@@ -9,6 +9,7 @@
     "build": "remix vite:build",
     "lint": "prettier  **/*.{js,ts,jsx,tsx} --write",
     "prettier": "prettier --single-quote --write",
+    "postinstall": "prisma generate",
     "test": "npm run lint",
     "typecheck": "tsc"
   },
