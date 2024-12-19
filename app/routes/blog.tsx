@@ -33,11 +33,10 @@ export default function Blog() {
                   <header>
                     {post.date && (
                       <FormattedDate
+                        from={new Date(post.date)}
                         to="MMMM d, yyyy"
                         className="text-sm text-muted-600 dark:text-muted-400"
-                      >
-                        {post.date}
-                      </FormattedDate>
+                      />
                     )}
 
                     <h2 className="text-xl font-semibold my-2">

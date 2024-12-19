@@ -22,7 +22,7 @@ export function Post({
           </div>
           <div className="flex items-center mt-2 sm:mt-0 flex-wrap">
             <span className="hidden sm:inline mr-2">•</span>
-            <FormattedDate to="MMMM d, yyyy">{post.date ?? ''}</FormattedDate>
+            <FormattedDate to="MMMM d, yyyy" from={new Date(post.date)} />
             <span className="mx-2">•</span>
             <span>{post.stats.text}</span>
           </div>
