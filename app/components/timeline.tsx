@@ -4,17 +4,7 @@ import { Anchor } from './anchor';
 import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import { Blockquote, Cite } from './blockquote';
 import React from 'react';
-
-export type TimelineEntry = {
-  type: 'event' | 'milestone' | 'job' | 'quote';
-  date: string;
-  title: string;
-  content: string;
-  link?: {
-    text: string;
-    href: string;
-  };
-};
+import { Event } from '@prisma/client';
 
 export function TimelineCard({
   date,
@@ -22,17 +12,15 @@ export function TimelineCard({
   link,
   content,
   ...props
-}: React.ComponentProps<typeof Card> & TimelineEntry) {
+}: React.ComponentProps<typeof Card> & Event) {
   return (
     <Card {...props}>
       {date && (
         <FormattedDate
-          from="MM-yyyy"
+          from={new Date(date)}
           to="MMMM yyyy"
           className="text-sm text-muted-600 dark:text-muted-400"
-        >
-          {date}
-        </FormattedDate>
+        />
       )}
 
       <h2 className="text-xl font-semibold my-2">&gt; {title}</h2>
@@ -54,7 +42,7 @@ export function TimelineCard({
   );
 }
 
-function TimelineQuote({ title, content }: TimelineEntry) {
+function TimelineQuote({ title, content }: Event) {
   return (
     <Blockquote>
       <p>{content}</p>
@@ -63,7 +51,7 @@ function TimelineQuote({ title, content }: TimelineEntry) {
   );
 }
 
-export function getTimelineComponent(entry: TimelineEntry) {
+export function getTimelineComponent(entry: Event) {
   switch (entry.type) {
     case 'quote':
       return TimelineQuote(entry);
