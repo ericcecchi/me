@@ -1,7 +1,7 @@
 ---
-title: "Ich habe genug"
-date: "2013-11-03"
-excerpt: "Last February, a new friend of mine asked me if I was satisfied with my life. While reflecting on what is “enough,” I discovered what I was really missing."
+title: 'Ich habe genug'
+date: '2013-11-03'
+excerpt: 'Last February, a new friend of mine asked me if I was satisfied with my life. While reflecting on what is “enough,” I discovered what I was really missing.'
 ---
 
 Last February, a new friend of mine asked me if I was satisfied with my life.
@@ -10,7 +10,7 @@ At the time, I really felt quite content, maybe even more content than I had eve
 
 But that's not what she was asking. See, English is a wonderful language, but it has its limitations. What she asked me was if "I have had enough [in life]." Our English-raised brains turn immediately to contentment. A lot of people are discontent with their lives, but I didn't feel that way. In German, however, the phrase "I have had enough" is _ich habe genug_. While the direct translation may be the same, the German phrase has an entirely different connotation than its English rendition. The _genug_ contained something that our "enough" lacked: fullness. ([Cue music.][song])
 
-I wasn't full. I was well fed, certainly—my mom made sure of it.  My schedule was packed—mostly with leisure and socializing, but I wasn't idle often. I was comfortable, safe, and content. However, I wasn't **full**. My "enough" wasn't enough. I didn't have _genug_.
+I wasn't full. I was well fed, certainly—my mom made sure of it. My schedule was packed—mostly with leisure and socializing, but I wasn't idle often. I was comfortable, safe, and content. However, I wasn't **full**. My "enough" wasn't enough. I didn't have _genug_.
 
 What was I missing?
 
@@ -22,7 +22,7 @@ In short, what was missing from my life was **impact.** In my safe life, I wasn'
 
 A verbal apology to those whose lives I was not contributing to would have been as awkward as the wording of this sentence is to be. Besides, my grandma once told me that actions put the smack down on words. Or maybe that was Mr. T. Either way, it seemed like sage advice to me, so I put together an Action Plan. And then I put my plan into, um, action. And as I was acting out my Action Plan, I saw that everything was working out, as it always does, exactly how I thought it would. Perfect.
 
-Sorry, I forgot to turn off the Sarcasm Lock on my keyboard. Of course nothing went according to my plan. ~~Luckily~~ ~~Fortunately~~ Providentially, everything went according to God's plan, and his plan is **so** much better than mine was.[^1][^2] 
+Sorry, I forgot to turn off the Sarcasm Lock on my keyboard. Of course nothing went according to my plan. ~~Luckily~~ ~~Fortunately~~ Providentially, everything went according to God's plan, and his plan is **so** much better than mine was.[^1][^2]
 
 My plan was to move out of my parents' house, out of my comfort zone, to an apartment on my own. God's plan was to provide me with a roommate who would stretch me in different ways, saving me from a different comfort zone: being alone. My plan would likely have left me broke and discouraged.
 
@@ -46,7 +46,7 @@ It's my hope that dedicating a significant amount of time to writing this month 
 
 [^1]: +5 Humility Points for that one.
 
-[^2]: -8 Humility Points for the wise crack at humility. Dammit :( 
+[^2]: -8 Humility Points for the wise crack at humility. Dammit :(
 
 [^3]: Deadhorse doesn't see the sun from November 24 through January 18. I'm afraid not even a good pun could bring sunshine to their dark days.
 

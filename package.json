@@ -14,7 +14,8 @@
     "typecheck": "tsc"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "proseWrap": "never"
   },
   "husky": {
     "hooks": {
