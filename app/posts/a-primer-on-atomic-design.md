@@ -1,7 +1,7 @@
 ---
-title: "A primer on atomic design"
-date: "2020-10-01"
-excerpt: "A prerequisite for understanding composability in React component libraries."
+title: 'A primer on atomic design'
+date: '2020-10-01'
+excerpt: 'A prerequisite for understanding composability in React component libraries.'
 ---
 
 Modular UI design is well-articulated in Brad Frost’s notorious 2013 blog post, Atomic Design ([now a book by the same name](https://atomicdesign.bradfrost.com/chapter-2/)). Frost argues that modular design systems need a clear sense of hierarchy in a taxonomy of components. So that hierarchy can be inferred from the names of classes of components, he proposes classifying components using terms from basic chemistry: atoms, molecules, and organisms.

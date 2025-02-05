@@ -1,6 +1,6 @@
 ---
-title: "A New Start"
-date: "2013-11-01"
+title: 'A New Start'
+date: '2013-11-01'
 excerpt: "Exactly three years ago, in a fit of unprecedented genius, I embarked on a month-long creative quest. Like most fits of unprecedented genius, it was a colossal failure. I'm not trying to make excuses for what happened next, but I have something I need to confess."
 ---
 
@@ -8,7 +8,7 @@ Exactly three years ago, in a fit of ~~stupidity~~ ~~insanity~~ ~~RAAAAGE~~ unpr
 
 Now, before you go notify the authorities, please note that it will be impossible to press charges. As far as I know, bad writing is not a criminal offense in America (perhaps a crime against humanity, though). And it's not illegal to forge the fictional death of one of my characters. He was pathetic anyway. I'm sure you wouldn't have minded if you read the story.
 
-I was foolish to succumb to my frustrations. My efforts were not futile, and the quest was not a complete failure. Yes, I failed to achieve my goal of writings 50,000 words of a novel. Yes, I failed to plan the direction of my novel beyond the first couple chapters. Yes, I failed in many ways. But my biggest failure, prior to penning the tragic demise of Allen, was failing to recognize my *success*.
+I was foolish to succumb to my frustrations. My efforts were not futile, and the quest was not a complete failure. Yes, I failed to achieve my goal of writings 50,000 words of a novel. Yes, I failed to plan the direction of my novel beyond the first couple chapters. Yes, I failed in many ways. But my biggest failure, prior to penning the tragic demise of Allen, was failing to recognize my _success_.
 
 Invigorated by the prospect of writing after several years of college classes that required me to write **zero** research papers, I quickly churned out a handful of writings for my grad school classes. It was work—different work than I was used to—but it was rewarding. I even _enjoyed_ writing some of them. And the feedback I got back was, well, extraordinarily positive. It is common for homo sapiens to respond with elation to the praise of their work.
 
@@ -27,7 +27,6 @@ There are probably a few other reasons I enjoy writing—Orwell would argue that
 I'll tell you about it tomorrow.
 
 ![Cliffhanger][cliff]
-
 
 [nano]: http://nanowrimo.org/
 [orwell]: http://en.wikipedia.org/wiki/Why_I_Write#Four_motives_for_writing
