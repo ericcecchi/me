@@ -10,6 +10,7 @@ export function Post({
   post,
 }: ReturnType<typeof useLoaderData<typeof loader>>) {
   const { content } = post;
+
   return (
     <article className="text-pretty">
       <div className="space-y-6 mb-12">
@@ -29,7 +30,12 @@ export function Post({
         </div>
       </div>
 
-      <MDXRemote {...content} components={MDXComponents} />
+      <MDXRemote
+        compiledSource={content}
+        scope={null}
+        frontmatter={null}
+        components={MDXComponents}
+      />
     </article>
   );
 }

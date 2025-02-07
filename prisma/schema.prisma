@@ -30,12 +30,24 @@ model Event {
   @@map("events")
 }
 
+type PostStats {
+  text    String
+  words   Int
+  minutes Float
+  time    Int
+}
+
 model Post {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  date      DateTime @db.Date
-  excerpt   String
-  published Boolean
-  title     String
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  date          DateTime  @db.Date
+  excerpt       String?
+  published     Boolean
+  title         String
+  slug          String    @unique
+  stats         PostStats
+  content       String
+  coverImage    String?
+  coverImageAlt String?
 
   @@map("posts")
 }
