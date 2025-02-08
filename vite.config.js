@@ -15,8 +15,7 @@ installGlobals();
 export default defineConfig({
   plugins: [
     mdx({
-      // eslint-disable-next-line no-undef
-      development: process.env.NODE_ENV === 'development',
+      development: false,
       remarkPlugins: [
         remarkCodeTitles,
         remarkCapitalize,
