@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { ReactNode } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/remix';
 import { LinksFunction } from '@vercel/remix';
+import { MDXProvider } from '@mdx-js/react';
 import stylesheet from './global.css?url';
 
 export const links: LinksFunction = () => [
@@ -56,5 +57,9 @@ export function Layout({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <MDXProvider>
+      <Outlet />
+    </MDXProvider>
+  );
 }

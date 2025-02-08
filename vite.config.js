@@ -22,8 +22,13 @@ export default defineConfig({
         remarkGfm,
       ],
       rehypePlugins: [rehypeAutolinkHeadings],
+      jsxImportSource: "react",
+      providerImportSource: "@mdx-js/react",
     }),
     remix({ presets: [vercelPreset()] }),
     tsconfigPaths(),
   ],
+  optimizeDeps: {
+    include: ['@mdx-js/react'],
+  },
 });
