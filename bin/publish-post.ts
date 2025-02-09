@@ -11,10 +11,39 @@ import remarkCodeTitles from 'remark-code-titles';
 import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
 
+async function getPostFromFilePath(filePath: string) {
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const filename = filePath.split('/').pop()!;
+  const slug = filename.replace(/\.mdx?$/, '');
+  const { data, content, excerpt } = matter(fileContents);
+  const postData = data as Record<string, string | undefined>;
+  const contentMdx = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [
+        remarkCodeTitles,
+        remarkCapitalize,
+        remarkSmartypants,
+        remarkGfm,
+      ],
+      rehypePlugins: [rehypeAutolinkHeadings, rehypeHighlight],
+    },
+  });
+
+  return {
+    title: postData.title!,
+    slug,
+    excerpt: postData.excerpt ?? excerpt ?? null,
+    content: contentMdx,
+    date: postData.date!,
+    coverImage: postData.coverImage ?? null,
+    coverImageAlt: postData.coverImageAlt ?? null,
+    stats: readingTime(content),
+  };
+}
+
 /**
  * Given a file path, read the file and create a new post in the database.
  */
-
 async function main() {
   const file = process.argv[2];
   const post = await getPostFromFilePath(file);
@@ -44,33 +73,3 @@ async function main() {
 }
 
 main();
-export async function getPostFromFilePath(filePath: string) {
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const filename = filePath.split('/').pop()!;
-  const slug = filename.replace(/\.mdx?$/, '');
-  const { data, content, excerpt } = matter(fileContents);
-  const postData = data as Record<string, string | undefined>;
-  const contentMdx = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [
-        remarkCodeTitles,
-        remarkCapitalize,
-        remarkSmartypants,
-        remarkGfm,
-      ],
-      rehypePlugins: [rehypeAutolinkHeadings, rehypeHighlight],
-    },
-    scope: postData,
-  });
-
-  return {
-    title: postData.title!,
-    slug,
-    excerpt: postData.excerpt ?? excerpt ?? null,
-    content: contentMdx,
-    date: postData.date!,
-    coverImage: postData.coverImage ?? null,
-    coverImageAlt: postData.coverImageAlt ?? null,
-    stats: readingTime(content),
-  };
-}

@@ -27,6 +27,7 @@ model Event {
   title   String
   type    EventType
 
+  @@unique([title, date])
   @@map("events")
 }
 

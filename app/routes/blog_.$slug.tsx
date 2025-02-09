@@ -1,7 +1,7 @@
 import { getPostBySlug } from '~/lib/posts.server';
 import { Page } from '~/components/page';
 import Post from '~/components/post';
-import { json, LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
+import { LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
 import { useLoaderData } from '@remix-run/react';
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -48,5 +48,5 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response('Post not found', { status: 404 });
   }
 
-  return json({ post });
+  return { post };
 }

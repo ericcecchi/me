@@ -4,7 +4,6 @@ import { FormattedDate } from '~/components/formatted-date';
 import { Card } from '~/components/card';
 import { Anchor } from '~/components/anchor';
 import { useLoaderData } from '@remix-run/react';
-import { json } from '@vercel/remix';
 import { getPostExcerpts } from '~/lib/posts.server';
 
 export const meta = [
@@ -58,7 +57,7 @@ export default function Blog() {
 
 export async function loader() {
   const posts = await getPostExcerpts();
-  return json({
+  return {
     posts,
-  });
+  };
 }

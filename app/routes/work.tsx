@@ -2,7 +2,6 @@ import { Anchor } from '~/components/anchor';
 import { Page } from '~/components/page';
 import { getTimelineComponent } from '~/components/timeline';
 import { PageTitle } from '~/components/page-title';
-import { json } from '@vercel/remix';
 import { useLoaderData } from '@remix-run/react';
 import { prisma } from '~/lib/db';
 
@@ -55,5 +54,5 @@ export async function loader() {
   const timeline = await prisma.event.findMany({
     orderBy: { date: 'desc' },
   });
-  return json({ timeline });
+  return { timeline };
 }
