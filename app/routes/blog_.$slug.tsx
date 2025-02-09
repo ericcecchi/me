@@ -1,7 +1,7 @@
 import { getPostBySlug } from '~/lib/posts.server';
 import { Page } from '~/components/page';
 import Post from '~/components/post';
-import { json, LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
+import { LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
 import { useLoaderData } from '@remix-run/react';
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -10,18 +10,18 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     {
       name: 'description',
-      content: data.post.excerpt,
+      content: data.post?.excerpt ?? '',
     },
     {
       property: 'og:title',
-      content: data.post.title,
+      content: data.post?.title ?? '',
     },
     {
       property: 'og:description',
-      content: data.post.excerpt,
+      content: data.post?.excerpt ?? '',
     },
     {
-      title: data.post.title,
+      title: data.post?.title ?? '',
     },
   ];
 };
@@ -44,5 +44,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response('Slug must be a string', { status: 400 });
   }
   const post = await getPostBySlug(params.slug);
-  return json({ post });
+  if (!post) {
+    throw new Response('Post not found', { status: 404 });
+  }
+
+  return { post };
 }
