@@ -9,7 +9,7 @@ export const meta = [
   {
     title: 'My Work',
     description:
-      'A wayward path from humble beginnings to engineering management at Chicago’s beloved unicorn startup, Sprout Social.',
+      'A wayward path from humble beginnings to engineering management at Sprout Social, to platform architecture and leading security engineering at Arcadia.',
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Work() {
           >
             an industry-leading community solar platform
           </Anchor>{' '}
-          at Arcadia.
+          and leading security engineering at Arcadia.
         </p>
 
         {timeline.map((entry) => {
