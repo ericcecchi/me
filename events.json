@@ -259,9 +259,16 @@
     "type": "event"
   },
   {
-    "date": "2024-06-01T00:00:00.000Z",
-    "title": "Stepped up to lead security engineering",
-    "content": "Stepped into leading security engineering at Arcadia. My focus expanded to cloud infrastructure security, vendor security assessments, and compliance and audit support—bringing the same pragmatic, systems-level engineering discipline to protecting our platform, data, and operations.",
+    "date": "2025-10-01T00:00:00.000Z",
+    "title": "Transitioning toward security engineering",
+    "content": "Began shifting my focus toward security engineering at Arcadia, applying platform architecture experience to cloud infrastructure security, vendor security assessments, and audit readiness.",
+    "link": null,
+    "type": "event"
+  },
+  {
+    "date": "2026-07-01T00:00:00.000Z",
+    "title": "Promoted to lead security engineering",
+    "content": "Officially stepped into the role leading security engineering at Arcadia. My scope expanded to lead our cloud infrastructure security, vendor risk assessments, and compliance and audit support—bringing a pragmatic, systems-level approach to keeping our platform, data, and operations secure.",
     "link": null,
     "type": "event"
   }
