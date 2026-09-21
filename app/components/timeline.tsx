@@ -6,13 +6,17 @@ import { Blockquote, Cite } from './blockquote';
 import React from 'react';
 import { Event } from '@prisma/client';
 
+type TimelineEvent = Omit<Event, 'date'> & {
+  date: string;
+};
+
 export function TimelineCard({
   date,
   title,
   link,
   content,
   ...props
-}: React.ComponentProps<typeof Card> & Event) {
+}: React.ComponentProps<typeof Card> & TimelineEvent) {
   return (
     <Card {...props}>
       {date && (
@@ -42,7 +46,7 @@ export function TimelineCard({
   );
 }
 
-function TimelineQuote({ title, content }: Event) {
+function TimelineQuote({ title, content }: TimelineEvent) {
   return (
     <Blockquote>
       <p>{content}</p>
@@ -51,7 +55,7 @@ function TimelineQuote({ title, content }: Event) {
   );
 }
 
-export function getTimelineComponent(entry: Event) {
+export function getTimelineComponent(entry: TimelineEvent) {
   switch (entry.type) {
     case 'quote':
       return TimelineQuote(entry);
