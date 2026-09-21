@@ -147,7 +147,7 @@
   {
     "date": "2018-01-08T00:00:00.000Z",
     "title": "Won a Value Award",
-    "content": "I was recognized for my work throughout my tenure at Sprout, including establishing the first design systems used in web development at Sprout and running point on bringing our marketing web properties into compliance the the GDPR and ePrivacy regulations. I received the award for embodying the Sprout Value of “Embracing Accountability.”",
+    "content": "I was recognized for my work throughout my tenure at Sprout, including establishing the first design systems used in web development at Sprout and running point on bringing our marketing web properties into compliance with the GDPR and ePrivacy regulations. I received the award for embodying the Sprout Value of “Embracing Accountability.”",
     "link": {
       "href": "https://seeds.sproutsocial.com/brand/values/",
       "text": "Learn more about the Sprout Values"
@@ -255,6 +255,13 @@
     "date": "2024-01-02T00:00:00.000Z",
     "title": "A strategic pivot",
     "content": "A reorganization of the company left us with fewer engineers and the same business objectives. We needed a new strategy that would take us in the right direction. With no time for a pure greenfield approach, I laid out the plans for a modified Strangler Fig pattern to incrementally replace the legacy platform with a modern and scalable tech stack.",
+    "link": null,
+    "type": "event"
+  },
+  {
+    "date": "2024-06-01T00:00:00.000Z",
+    "title": "Stepped up to lead security engineering",
+    "content": "Stepped into leading security engineering at Arcadia. My focus expanded to cloud infrastructure security, vendor security assessments, and compliance and audit support—bringing the same pragmatic, systems-level engineering discipline to protecting our platform, data, and operations.",
     "link": null,
     "type": "event"
   }
