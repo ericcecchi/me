@@ -72,6 +72,14 @@ export default function Home() {
           </p>
 
           <p>
+            I also run{' '}
+            <Anchor href="https://blankslate.biz">Blank Slate Creative</Anchor>,
+            a one-founder security documentation practice that writes security
+            policies, SOC 2 readiness documentation, and vendor security
+            questionnaire answers for startups.
+          </p>
+
+          <p>
             I’m a husband and a father, a thinker and a tinkerer, a minimalist
             and{' '}
             <Anchor
