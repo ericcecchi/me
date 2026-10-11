@@ -28,28 +28,27 @@ export default function Home() {
 
         <section className="space-y-6 sm:text-lg leading-relaxed">
           <p>
-            I currently lead security engineering at{' '}
-            <Anchor
-              href="https://www.arcadia.com"
-              rel="noopener"
-              target="_blank"
-            >
-              Arcadia
-            </Anchor>
-            , helping protect a platform that makes renewable energy accessible
-            to everyone. My work centers on cloud infrastructure security,
-            vendor security assessments, and compliance and audit
-            support—ensuring our systems and data stay secure as we scale.
-            Before stepping into security leadership, I worked as a Staff and
-            Senior Staff Engineer guiding platform architecture and technical
-            direction across our teams.
+            I lead security engineering at Perch Energy. The work is cloud
+            infrastructure security, vendor security assessments, and compliance
+            and audit support. Before I moved into security, I was a Staff and
+            Senior Staff Engineer, guiding platform architecture and technical
+            direction.
           </p>
 
           <p>
-            I’ve also been making beautiful and functional user experiences on
-            the World Wide Web for 15 years. At Sprout Social, I founded and
-            grew the team of web developers tasked with elevating the brand and
-            growing the customer base through digital marketing, including the{' '}
+            I also run{' '}
+            <Anchor href="https://blankslate.biz">Blank Slate Creative</Anchor>,
+            a one-founder security documentation practice that writes security
+            policies, SOC 2 readiness documentation, and vendor security
+            questionnaire answers for startups.
+          </p>
+
+          <p>
+            I started out building apps and websites, and I have 15 years of
+            engineering experience behind the security work. At Sprout Social, I
+            founded and grew the team of web developers tasked with elevating
+            the brand and growing the customer base through digital marketing,
+            including the{' '}
             <Anchor
               href="https://sproutsocial.com/"
               rel="noopener"
@@ -67,18 +66,9 @@ export default function Home() {
             </Anchor>
             , which draw millions of visitors each month. After that, I managed
             a team of software engineers building Sprout’s flagship social media
-            management product used by over 30,000 customers. Years of frontend
-            and software engineering give me a pragmatic perspective on
-            security: grounded in how developers actually work and how systems
-            are built.
-          </p>
-
-          <p>
-            I also run{' '}
-            <Anchor href="https://blankslate.biz">Blank Slate Creative</Anchor>,
-            a one-founder security documentation practice that writes security
-            policies, SOC 2 readiness documentation, and vendor security
-            questionnaire answers for startups.
+            management product used by over 30,000 customers. That background
+            gives me a pragmatic perspective on security: grounded in how
+            developers actually work and how systems are built.
           </p>
 
           <p>
