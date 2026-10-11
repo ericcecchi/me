@@ -4,7 +4,7 @@ import { Page } from '~/components/page';
 import { getTimelineComponent } from '~/components/timeline';
 import { PageTitle } from '~/components/page-title';
 import { useLoaderData } from '@remix-run/react';
-import { prisma } from '~/lib/db';
+import { getTimeline } from '~/lib/timeline.server';
 
 export const meta: MetaFunction = () => [
   { title: 'Work history | Eric Cecchi' },
@@ -48,8 +48,6 @@ export default function Work() {
 }
 
 export async function loader() {
-  const timeline = await prisma.event.findMany({
-    orderBy: { date: 'desc' },
-  });
+  const timeline = await getTimeline();
   return { timeline };
 }
