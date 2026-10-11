@@ -24,8 +24,9 @@ export default function Work() {
         <PageTitle>A (sort of) brief history of me</PageTitle>
 
         <p className="sm:text-lg">
-          A wayward path from humble beginnings to engineering management at
-          Chicago’s beloved{' '}
+          I lead security engineering at Perch Energy. I started out building
+          apps and websites, moved into engineering management at Chicago’s
+          beloved{' '}
           <Anchor
             href="https://investors.sproutsocial.com/news/news-details/2019/Sprout-Social-Announces-Launch-of-Initial-Public-Offering/default.aspx"
             rel="noopener"
@@ -33,15 +34,9 @@ export default function Work() {
           >
             unicorn
           </Anchor>{' '}
-          startup, Sprout Social, to building{' '}
-          <Anchor
-            href="https://www.arcadia.com/press/2gw-community-solar"
-            rel="noopener"
-            target="_blank"
-          >
-            an industry-leading community solar platform
-          </Anchor>{' '}
-          and leading security engineering at Arcadia.
+          startup, Sprout Social, and then into platform architecture as a Staff
+          and Senior Staff Engineer before turning to security. The timeline
+          below starts with the most recent.
         </p>
 
         {timeline.map((entry) => {
