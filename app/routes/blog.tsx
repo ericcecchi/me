@@ -1,3 +1,4 @@
+import type { MetaFunction } from '@vercel/remix';
 import { Page } from '~/components/page';
 import { PageTitle } from '~/components/page-title';
 import { FormattedDate } from '~/components/formatted-date';
@@ -6,11 +7,12 @@ import { Anchor } from '~/components/anchor';
 import { useLoaderData } from '@remix-run/react';
 import { getPostExcerpts } from '~/lib/posts.server';
 
-export const meta = [
+export const meta: MetaFunction = () => [
+  { title: 'Blog | Eric Cecchi' },
   {
-    title: 'Blog',
-    description:
-      "I don't write often, but when I do, it's thoroughly mediocre.",
+    name: 'description',
+    content:
+      'Posts by Eric Cecchi on web development, React, and engineering work.',
   },
 ];
 
