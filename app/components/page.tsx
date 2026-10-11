@@ -11,9 +11,9 @@ export function Page({ className, ...props }: React.ComponentProps<'div'>) {
         <p>
           What this site collects: anonymous page-view counts and page-speed
           measurements through Vercel Analytics and Speed Insights, which are
-          not tied to you or your IP address, plus a visit counter I host
-          myself. Fonts load from Google Fonts, which sees your IP address when
-          they do. I don’t collect names or emails.
+          not tied to you or your IP address. Fonts load from Google Fonts,
+          which sees your IP address when they do. I don’t collect names or
+          emails.
         </p>
       </footer>
     </div>
