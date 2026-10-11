@@ -1,3 +1,4 @@
+import type { MetaFunction } from '@vercel/remix';
 import { Anchor } from '~/components/anchor';
 import { Page } from '~/components/page';
 import { getTimelineComponent } from '~/components/timeline';
@@ -5,11 +6,12 @@ import { PageTitle } from '~/components/page-title';
 import { useLoaderData } from '@remix-run/react';
 import { prisma } from '~/lib/db';
 
-export const meta = [
+export const meta: MetaFunction = () => [
+  { title: 'Work history | Eric Cecchi' },
   {
-    title: 'My Work',
-    description:
-      'A wayward path from humble beginnings to engineering management at Sprout Social, to platform architecture and leading security engineering at Arcadia.',
+    name: 'description',
+    content:
+      'Eric Cecchi’s career timeline: web development, engineering management at Sprout Social, platform architecture, and security engineering leadership.',
   },
 ];
 
