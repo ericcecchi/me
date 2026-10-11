@@ -4,11 +4,7 @@ import { Anchor } from './anchor';
 import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import { Blockquote, Cite } from './blockquote';
 import React from 'react';
-import { Event } from '@prisma/client';
-
-type TimelineEvent = Omit<Event, 'date'> & {
-  date: string;
-};
+import type { TimelineEvent } from '~/lib/timeline.server';
 
 export function TimelineCard({
   date,
