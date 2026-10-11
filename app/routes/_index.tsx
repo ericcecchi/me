@@ -27,11 +27,10 @@ export default function Home() {
         <section className="space-y-6 sm:text-lg leading-relaxed">
           <p>
             I lead security engineering at Perch Energy. The work is cloud
-            infrastructure security and compliance and audit support: writing
-            security policies, running vendor security assessments, and
-            answering enterprise security reviews. Before I moved into security,
-            I was a Staff and Senior Staff Engineer, guiding platform
-            architecture and technical direction.
+            infrastructure security, vendor security assessments, and compliance
+            and audit support. Before I moved into security, I was a Staff and
+            Senior Staff Engineer, guiding platform architecture and technical
+            direction.
           </p>
 
           <p>
@@ -43,7 +42,7 @@ export default function Home() {
           </p>
 
           <p>
-            I started in front-end development, and I have 15 years of
+            I started out building apps and websites, and I have 15 years of
             engineering experience behind the security work. At Sprout Social, I
             founded and grew the team of web developers tasked with elevating
             the brand and growing the customer base through digital marketing,
