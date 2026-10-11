@@ -1,13 +1,15 @@
+import type { MetaFunction } from '@vercel/remix';
 import { Avatar } from '~/components/avatar';
 import { Anchor } from '~/components/anchor';
 import Page from '~/components/page';
 import { PageTitle } from '~/components/page-title';
 
-export const meta = [
+export const meta: MetaFunction = () => [
+  { title: 'Eric Cecchi | Software and security engineering leader' },
   {
-    title: 'Home',
-    description:
-      'I’m a software and security engineering leader based in Chicago, IL. I’ve been making beautiful and functional user experiences on the World Wide Web for 15 years.',
+    name: 'description',
+    content:
+      'Eric Cecchi is a software and security engineering leader in Chicago with 15 years on the web. He also runs Blank Slate Creative, a security documentation practice.',
   },
 ];
 
