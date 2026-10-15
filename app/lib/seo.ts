@@ -10,8 +10,10 @@ import type { HeadersFunction, MetaDescriptor } from '@vercel/remix';
  *   the request URL, so a query string can't become a canonical.
  * - Structured data says only what the page shows. Person carries the name,
  *   the photo, and live profiles; no jobTitle and no worksFor (BD-2026-121).
- * - sameAs lists only live profiles, each loaded and checked (LinkedIn and
- *   blankslate.biz/about both answered 200 and name Eric on 2026-10-14).
+ * - sameAs lists only live profiles of Eric himself, each loaded and checked
+ *   (LinkedIn answered 200 and names Eric on 2026-10-14). A company page such
+ *   as blankslate.biz/about is not a profile of the person, so it stays out;
+ *   the person-to-company link belongs on the company's side (founder).
  */
 
 export const ORIGIN = 'https://www.ericcecchi.com';
@@ -25,10 +27,7 @@ const SHARE_IMAGE = {
   alt: 'Eric Cecchi',
 };
 
-const SAME_AS = [
-  'https://www.linkedin.com/in/ericcecchi',
-  'https://blankslate.biz/about',
-];
+const SAME_AS = ['https://www.linkedin.com/in/ericcecchi'];
 
 export function absoluteUrl(path: string) {
   return ORIGIN + path;
