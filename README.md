@@ -29,6 +29,19 @@ Body in Markdown.
 The `/work` timeline is `events.json`. Each entry has `date`, `title`, `content`, `link`
 (`{ "href", "text" }` or `null`) and `type` (`event` or `quote`). Entries show newest first.
 
+## Search metadata
+
+`app/lib/seo.ts` builds every page's title, description, canonical URL, Open Graph tags, and
+structured data (`ProfilePage` and `Person` on `/`, `BlogPosting` on each post). A new route calls
+`pageMeta()` with a fixed path and exports `headers = cachedPageHeaders`. Canonicals always use
+`https://www.ericcecchi.com`. A post's `excerpt` becomes its meta description with any Markdown
+marks removed.
+
+## Fonts
+
+Fira Mono is self-hosted from `app/fonts/` (SIL Open Font License, `app/fonts/OFL.txt`), so no
+font service sees a visitor's request. The `@font-face` rules are at the top of `app/global.css`.
+
 ## Develop
 
 ```

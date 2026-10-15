@@ -6,15 +6,17 @@ import { Card } from '~/components/card';
 import { Anchor } from '~/components/anchor';
 import { useLoaderData } from '@remix-run/react';
 import { getPostExcerpts } from '~/lib/posts.server';
+import { cachedPageHeaders, pageMeta } from '~/lib/seo';
 
-export const meta: MetaFunction = () => [
-  { title: 'Blog | Eric Cecchi' },
-  {
-    name: 'description',
-    content:
+export const meta: MetaFunction = () =>
+  pageMeta({
+    title: 'Blog | Eric Cecchi',
+    description:
       'Posts by Eric Cecchi on web development, React, and engineering work.',
-  },
-];
+    path: '/blog',
+  });
+
+export const headers = cachedPageHeaders;
 
 export default function Blog() {
   const { posts } = useLoaderData<typeof loader>();

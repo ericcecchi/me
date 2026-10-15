@@ -1,21 +1,26 @@
 import type { MetaFunction } from '@vercel/remix';
 import { Avatar } from '~/components/avatar';
 import { Anchor } from '~/components/anchor';
+import { JsonLd } from '~/components/json-ld';
 import Page from '~/components/page';
 import { PageTitle } from '~/components/page-title';
+import { cachedPageHeaders, pageMeta, profilePageLd } from '~/lib/seo';
 
-export const meta: MetaFunction = () => [
-  { title: 'Eric Cecchi | Software and security engineering leader' },
-  {
-    name: 'description',
-    content:
+export const meta: MetaFunction = () =>
+  pageMeta({
+    title: 'Eric Cecchi | Software and security engineering leader',
+    description:
       'Eric Cecchi is a software and security engineering leader in Chicago with 15 years on the web. He also runs Blank Slate Creative, a security documentation practice.',
-  },
-];
+    path: '/',
+    type: 'profile',
+  });
+
+export const headers = cachedPageHeaders;
 
 export default function Home() {
   return (
     <Page>
+      <JsonLd data={profilePageLd()} />
       <div className="flex flex-col items-center mt-auto">
         <header className="md:flex items-center md:space-x-6 sm:mt-24 mt-12 mb-6">
           <div className="flex-0 mb-4 md:mb-0">
