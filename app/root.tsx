@@ -10,8 +10,18 @@ import { ReactNode } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/remix';
 import { LinksFunction } from '@vercel/remix';
 import stylesheet from './global.css?url';
+// The body text font. Preloaded so text paints in Fira Mono without waiting on
+// the stylesheet; the other weights and subsets load as the page needs them.
+import firaMono400 from './fonts/fira-mono-400-latin.woff2?url';
 
 export const links: LinksFunction = () => [
+  {
+    rel: 'preload',
+    href: firaMono400,
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  },
   { rel: 'stylesheet', href: stylesheet },
 ];
 
@@ -26,16 +36,6 @@ export function Layout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-          rel="stylesheet"
-        />
         <Links />
       </head>
       <body className="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">

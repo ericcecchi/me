@@ -1,7 +1,6 @@
 import { getPostExcerpts } from '~/lib/posts.server';
+import { ORIGIN } from '~/lib/seo';
 
-// www is the canonical host: the apex answers 308 to www.
-const ORIGIN = 'https://www.ericcecchi.com';
 const STATIC_PATHS = ['/', '/work', '/blog'];
 
 async function getPostPaths() {

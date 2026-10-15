@@ -5,15 +5,17 @@ import { getTimelineComponent } from '~/components/timeline';
 import { PageTitle } from '~/components/page-title';
 import { useLoaderData } from '@remix-run/react';
 import { getTimeline } from '~/lib/timeline.server';
+import { cachedPageHeaders, pageMeta } from '~/lib/seo';
 
-export const meta: MetaFunction = () => [
-  { title: 'Work history | Eric Cecchi' },
-  {
-    name: 'description',
-    content:
+export const meta: MetaFunction = () =>
+  pageMeta({
+    title: 'Work history | Eric Cecchi',
+    description:
       'Eric Cecchi’s career timeline: web development, engineering management at Sprout Social, platform architecture, and security engineering leadership.',
-  },
-];
+    path: '/work',
+  });
+
+export const headers = cachedPageHeaders;
 
 export default function Work() {
   const { timeline } = useLoaderData<typeof loader>();
